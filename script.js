@@ -1,293 +1,162 @@
+/**
+ * AutoWealthAI — Interactive Logic, Bilingual Engine (FR/AR) & Business Form Validation
+ */
+
 const translations = {
     fr: {
-        nav_portfolio: "Portfolio",
-        nav_about: "À propos",
-        nav_contact: "Contact",
-        nav_dial: "Data",
-        nav_cta: "Consultation",
-        hero_title: "Des sites web professionnels conçus pour les entreprises.",
-        hero_subtitle: "Expertise en développement web et automatisation pour propulser votre présence en ligne.",
-        hero_cta: "Voir mes projets",
-        hero_cta_secondary: "Consultation Gratuite",
-        hero_mockup: "Mockup Devices",
-        dial_total: "Projets &amp; Automations",
-        dial_sub: "Full-Stack &amp; IA",
-        stat_automation: "Automatisation",
-        stat_exp: "Années d'expérience",
-        stat_support: "Support client",
-        svc_heading: "Services",
-        svc_live: "En ligne",
-        svc1_title: "Développement Web",
-        svc1_desc: "Sites vitrines et plateformes sur mesure, rapides et optimisés SEO.",
-        svc1_tag1: "Responsive",
-        svc1_tag2: "SEO",
-        svc1_tag3: "Performance",
-        svc2_title: "Flux IA",
-        svc2_desc: "Automatisation de flux de travail et agents connectés (WhatsApp, emails).",
-        svc2_tag1: "Agents IA",
-        svc2_tag2: "Automatisation",
-        svc2_tag3: "n8n",
-        svc3_title: "UI / UX",
-        svc3_desc: "Design premium, frost-glass moderne et expérience utilisateur soignée.",
-        svc3_tag1: "Design System",
-        svc3_tag2: "Responsive",
-        svc3_tag3: "Bento",
-        portfolio_title: "Mon Showroom",
-        portfolio_tag: "Projets en ligne",
-        portfolio_subtitle: "Découvrez une sélection de mes réalisations récentes.",
-        status_delivered: "Livré",
-        status_active: "Actif",
-        status_automated: "Automatisé",
-        project_img_placeholder: "Image du Projet",
-        about_role: "Full-Stack &amp; Ingénieur en Automatisation IA",
-        about_github: "Explore GitHub Repos &amp; Automations",
-        stat_exp_short: "Ans auto-didacte",
-        stat_proj_short: "Projets &amp; Automations",
-        stat_auto_short: "Flux automatisés",
-        project1_title: "Clinique Dentaire Dr. Sequalli",
-        project1_desc: "Site web bilingue avec système de réservation en ligne.",
-        project2_title: "Clinique Dentaire Cartier",
-        project2_desc: "Plateforme professionnelle avec un design minimaliste.",
-        project3_title: "Cabinet Dentaire Moderne",
-        project3_desc: "Landing page réactive avec un design premium.",
-        project4_title: "AutoWealth AI",
-        project4_desc: "Plateforme innovante pour l'automatisation et l'IA.",
-        project_link: "Voir le site \u2192", // ->
-        auto_section: "Automation &amp; AI Pipelines",
-        web_section: "Client Web Applications",
-        status_workflow: "Active Workflow",
-        status_production: "Production Ready",
-        view_source: "View Source",
-        demo: "Demo \u2192",
-        auto1_title: "AI Autonomous Agents &amp; Receptionists",
-        auto1_desc: "Assistants conversationnels multilingues 24/7 (WhatsApp/Telegram + LLM) g\u00e9rant la qualification instantan\u00e9e des clients et la prise de rendez-vous automatique.",
-        auto1_tag1: "n8n",
-        auto1_tag2: "OpenAI API",
-        auto1_tag3: "WhatsApp Cloud API",
-        auto1_tag4: "Smart Scheduling",
-        auto2_title: "Autonomous Lead Gen &amp; Prospecting Pipelines",
-        auto2_desc: "Workflows automatis\u00e9s de scraping de prospects, enrichissement de donn\u00e9es, v\u00e9rification et injection dans le CRM.",
-        auto2_tag1: "n8n",
-        auto2_tag2: "Data Extraction",
-        auto2_tag3: "Lead Enrichment",
-        auto2_tag4: "Webhooks",
-        auto3_title: "Sales Automation &amp; Multi-Channel CRM Sync",
-        auto3_desc: "Synchronisation bidirectionnelle du pipeline en temps r\u00e9el, s\u00e9quences de relance automatis\u00e9es, suivi des \u00e9tapes de deal et alertes instantan\u00e9es.",
-        auto3_tag1: "n8n",
-        auto3_tag2: "GoHighLevel",
-        auto3_tag3: "Supabase",
-        auto3_tag4: "Sales Pipelines",
-        auto4_title: "Operations, PM Bots &amp; Content Distribution",
-        auto4_desc: "Suivi automatis\u00e9 des t\u00e2ches de projet, traitement des tickets, bots de notification d'\u00e9quipe et publication programm\u00e9e de contenu multi-plateformes.",
-        auto4_tag1: "n8n",
-        auto4_tag2: "Telegram Bot",
-        auto4_tag3: "API Integrations",
-        auto4_tag4: "Task Automation",
-        web1_title: "Clinique Dentaire Dr. Sequalli (Dr-SQ-KAMAL)",
-        web1_desc: "Portail patient bilingue avec syst\u00e8me int\u00e9gr\u00e9 de prise de rendez-vous en ligne.",
-        web1_tag1: "Next.js",
-        web1_tag2: "Billingue",
-        web1_tag3: "R\u00e9servation",
-        web2_title: "Clinique Dentaire Cartier",
-        web2_desc: "Page d'atterrissage minimaliste pour cabinet m\u00e9dical, optimis\u00e9e pour le SEO local.",
-        web2_tag1: "SEO",
-        web2_tag2: "Landing",
-        web2_tag3: "Responsive",
-        web3_title: "Centre Dentaire Dr. El-Bakali &amp; Cabinet F\u00e8s",
-        web3_desc: "Interfaces r\u00e9actives \u00e0 forte conversion, con\u00e7ues pour les cliniques de sant\u00e9.",
-        web3_tag1: "Conversion",
-        web3_tag2: "Clinique",
-        web3_tag3: "Responsive",
-        pricing_title: "Des Solutions Claires, Sans Engagement",
-        pricing_subtitle: "Choisissez la formule adaptée aux besoins actuels de votre entreprise. Une structure modulaire et transparente.",
-        pack1_name: "Pack Vitrine",
-        pack1_price: "1 500 DH",
-        pack1_feat1: "Site web moderne et rapide (1 à 3 pages)",
-        pack1_feat2: "Design 100% responsive (Mobile & Desktop)",
-        pack1_feat3: "Optimisation SEO locale (Google Business)",
-        pack1_feat4: "Bouton d'action direct vers WhatsApp",
-        pack_recommended: "Recommandé",
-        pack2_name: "Pack Réservation",
-        pack2_price: "2 900 DH",
-        pack2_feat1: "Tout ce qui est inclus dans le Pack Vitrine",
-        pack2_feat2: "Système de prise de rendez-vous interactif",
-        pack2_feat3: "Synchronisation automatique avec votre calendrier",
-        pack2_feat4: "Rappels et confirmations automatisés par email",
-        pack3_name: "Pack Agent WhatsApp IA",
-        pack3_price: "3 900 DH",
-        pack3_feat1: "Tout ce qui est inclus dans les packs précédents",
-        pack3_feat2: "Agent ou Chatbot intelligent connecté sur WhatsApp 24h/24",
-        pack3_feat3: "Réponses automatiques aux FAQ en Français et Darija Marocaine",
-        pack3_feat4: "Enregistrement automatique des rendez-vous via la discussion",
-        pack_cta: "Choisir ce pack",
-        about_title: "À Propos de Moi",
-        about_subtitle: "Abdelghani Rahmani - Développeur & Intégrateur",
-        about_text1: "Après une solide formation initiale à l'OFPPT, j'ai consacré plus de 4 années (de 2021 à aujourd'hui) à approfondir mes compétences en programmation de manière autonome. Cette rigueur m'a permis de maîtriser les technologies web modernes.",
-        about_text2: "Depuis mi-2024, j'ai étendu mon champ d'expertise à l'intégration de l'Intelligence Artificielle et à l'automatisation des flux de travail, afin d'offrir des solutions toujours plus performantes et innovantes aux entreprises.",
-        contact_title: "Prêt à collaborer ?",
-        contact_desc: "Discutons de votre projet et trouvons la solution idéale pour votre entreprise.",
-        contact_email: "Envoyer un Email",
-        form_name: "Nom Complet",
-        form_business: "Nom de l'entreprise",
+        nav_dial: "Performances",
+        nav_services: "Solutions IA",
+        nav_portfolio: "Réalisations",
+        nav_methode: "Notre Méthode",
+        nav_about: "Fondateurs",
+        nav_cta: "Diagnostic Offert",
+        dial_label: "Disponibilité Commerciale",
+        dial_sub: "Zéro Prospect Perdu",
+        stat_speed: "Temps de réponse devis & appels",
+        stat_booking: "Prise de rendez-vous autonome",
+        stat_security: "Données protégées & hébergement sécurisé",
+        services_title: "Solutions Métier & Automatisation",
+        services_sub: "Développez vos ventes sans alourdir votre charge de travail.",
+        tag_active: "Opérationnel",
+        svc1_title: "Standard Téléphonique & Réception IA 24/7",
+        status_active: "Actif 24/7",
+        svc1_desc: "L'assistant vocal décroche instantanément, renseigne sur vos prestations et cale directement les créneaux dans votre agenda professionnel.",
+        svc2_title: "Relance Automatique des Devis & Factures",
+        status_sync: "Conversion",
+        svc2_desc: "Confirmation automatique par SMS et email dès réception d'une demande, suivie de relances intelligentes pour valider vos devis sans intervention manuelle.",
+        svc3_title: "Interconnexion de Vos Outils Métier",
+        status_tools: "Synchronisé",
+        svc3_desc: "Vos formulaires web, e-mails, planning et outils de facturation communiquent ensemble. Fin des doubles saisies et des erreurs de coordination.",
+        portfolio_title: "Démonstrations & Plateformes Métier",
+        portfolio_sub: "Interfaces pensées pour inspirer confiance et convertir vos visiteurs.",
+        portfolio_tag: "En Ligne",
+        p1_title: "Atelier Mécanique & Entretien Automobile",
+        p1_desc: "Site professionnel adapté aux garages : présentation claire des forfaits, formulaire de devis express et sélection directe des créneaux d'atelier.",
+        p1_roi: "Impact client : Devis instantané en ligne et réduction des absences aux rendez-vous d'intervention.",
+        p2_title: "Restaurant Gastronomique & Réservations",
+        p2_desc: "Vitrine interactive soignée : consultation rapide de la carte du chef et réservation directe de table avec confirmation automatique.",
+        p2_roi: "Impact client : Réservations sans commission intermédiaire et optimisation du remplissage de salle.",
+        p3_title: "Centre de Soins & Cabinet Médical",
+        p3_desc: "Portail patient sécurisé avec module de prise de rendez-vous en ligne et présentation rassurante des spécialités médicales.",
+        p3_roi: "Impact client : Allègement du secrétariat téléphonique et gestion autonome du planning praticien.",
+        btn_demo: "Tester la démo →",
+        btn_source: "Code Source",
+        process_title: "Notre Méthode d'Intervention",
+        process_sub: "Votre activité d'abord. La technologie ensuite.",
+        process_tag: "3 Étapes Simples",
+        step1_title: "Diagnostic Gratuit (15 min)",
+        step1_desc: "Nous analysons vos méthodes actuelles (gestion des appels, devis, agenda) et ciblons où vous perdez du temps ou des clients potentiels.",
+        step2_title: "Mise en Place & Connexion",
+        step2_desc: "Nous créons votre plateforme web et raccordons vos automatisations à vos outils du quotidien sans interrompre votre activité.",
+        step3_title: "Tranquillité & Suivi Continu",
+        step3_desc: "Vos systèmes opèrent en toute autonomie 24h/24. Nous assurons la maintenance, le suivi et les évolutions de vos processus.",
+        founders_title: "Fondateurs",
+        founders_sub: "Direction technique & accompagnement sur le terrain",
+        role1_pill: "Technique",
+        role1_title: "Cofondateur & Lead Ingénieur",
+        role1_bio: "Conception d'architectures web sur-mesure, intégration d'assistants IA et orchestration de workflows automatisés.",
+        btn_github: "Explorer nos projets GitHub",
+        role2_pill: "Stratégie Métier",
+        role2_title: "Cofondateur & Développement Commercial",
+        role2_bio: "Audit des flux opérationnels, analyse de vos besoins concrets et accompagnement personnalisé pour votre déploiement.",
+        contact_title: "Parlons de vos opérations",
+        contact_sub: "Identifions en 15 minutes les tâches manuelles que vous pouvez automatiser.",
+        contact_badge: "Réponse sous 24h",
+        form_name: "Nom & Prénom",
+        form_business: "Nom de l'entreprise ou activité",
         form_phone: "Numéro de téléphone",
-        form_message: "Message",
-        form_submit: "Envoyer",
+        form_message: "Votre priorité principale",
+        form_submit: "Réserver mon diagnostic offert (15 min)",
+        form_disclaimer: "Gratuit et sans engagement. Vos données restent strictement confidentielles.",
         footer_rights: "Tous droits réservés."
     },
     ar: {
-        nav_portfolio: "أعمالي",
-        nav_about: "نبذة عني",
-        nav_contact: "تواصل معي",
-        nav_dial: "البيانات",
-        nav_cta: "استشارة",
-        hero_title: "مواقع ويب احترافية مصممة للشركات.",
-        hero_subtitle: "خبرة في تطوير الويب والأتمتة لتعزيز حضورك على الإنترنت.",
-        hero_cta: "شاهد أعمالي",
-        hero_cta_secondary: "استشارة مجانية",
-        hero_mockup: "Mockup Devices",
-        dial_total: "مشروع وأتمتة",
-        dial_sub: "تطوير كامل وذكاء اصطناعي",
-        stat_automation: "الأتمتة",
-        stat_exp: "سنوات من الخبرة",
-        stat_support: "دعم العملاء",
-        svc_heading: "الخدمات",
-        svc_live: "متصل",
-        svc1_title: "تطوير الويب",
-        svc1_desc: "مواقع وصفحات ويب حسب الطلب، سريعة ومحسّنة لمحركات البحث.",
-        svc1_tag1: "متجاوب",
-        svc1_tag2: "سيو",
-        svc1_tag3: "أداء",
-        svc2_title: "أتمتة بالذكاء الاصطناعي",
-        svc2_desc: "أتمتة سير العمل ومساعدين ذكيين مرتبطين على واتساب والبريد.",
-        svc2_tag1: "مساعدين IA",
-        svc2_tag2: "أتمتة",
-        svc2_tag3: "n8n",
-        svc3_title: "واجهة وتجربة",
-        svc3_desc: "تصميم راقي وحديث مع تجربة استخدام أنيقة وسلسة.",
-        svc3_tag1: "نظام تصميم",
-        svc3_tag2: "متجاوب",
-        svc3_tag3: "Bento",
-        portfolio_title: "معرض الأعمال",
-        portfolio_tag: "مشاريع نشطة",
-        portfolio_subtitle: "اكتشف مجموعة من أحدث مشاريعي.",
-        status_delivered: "تم التسليم",
-        status_active: "نشط",
-        status_automated: "آلي",
-        project_img_placeholder: "صورة المشروع",
-        about_role: "مهندس تطوير كامل وأتمتة بالذكاء الاصطناعي",
-        about_github: "استكشف مستودعات GitHub والأتمتة",
-        stat_exp_short: "سنوات تعلّم ذاتي",
-        stat_proj_short: "مشاريع وأتمتة",
-        stat_auto_short: "سير عمل آلي",
-        project1_title: "عيادة طب الأسنان د. سقلي",
-        project1_desc: "موقع ثنائي اللغة مع نظام حجز عبر الإنترنت.",
-        project2_title: "عيادة طب الأسنان كارتييه",
-        project2_desc: "منصة احترافية بتصميم مبسط وأنيق.",
-        project3_title: "عيادة أسنان حديثة",
-        project3_desc: "صفحة هبوط متجاوبة مع تصميم متميز.",
-        project4_title: "AutoWealth AI",
-        project4_desc: "منصة مبتكرة للأتمتة والذكاء الاصطناعي.",
-        project_link: "\u2190 عرض الموقع", // <-
-        auto_section: "خطوط الأتمتة والذكاء الاصطناعي",
-        web_section: "تطبيقات الويب للعملاء",
-        status_workflow: "مفعّل",
-        status_production: "جاهز للإنتاج",
-        view_source: "عرض الكود",
-        demo: "تجربة →",
-        auto1_title: "وكلاء واستقبال ذكيون",
-        auto1_desc: "مساعدون محادثة متعددي اللغات على مدار الساعة (واتساب/تيليغرام + نماذج لغوية) يديرون تأهيل العملاء الفوري والحجز التلقائي للمواعيد.",
-        auto1_tag1: "n8n",
-        auto1_tag2: "OpenAI API",
-        auto1_tag3: "WhatsApp Cloud API",
-        auto1_tag4: "جدولة ذكية",
-        auto2_title: "خطوط توليد العملاء والتواصل",
-        auto2_desc: "عملية آلية لاستخراج العملاء المحتملين وإثراء بياناتهم والتحقق منهم وإدخالهم إلى نظام إدارة العلاقات.",
-        auto2_tag1: "n8n",
-        auto2_tag2: "استخراج البيانات",
-        auto2_tag3: "إثراء العملاء",
-        auto2_tag4: "Webhooks",
-        auto3_title: "أتمتة المبيعات ومزامنة CRM المتعددة القنوات",
-        auto3_desc: "مزامنة فورية ثنائية الاتجاه لمسار المبيعات وتسلسلات متابعة آلية وتتبع مراحل الصفقات وتنبيهات فورية.",
-        auto3_tag1: "n8n",
-        auto3_tag2: "GoHighLevel",
-        auto3_tag3: "Supabase",
-        auto3_tag4: "مسارات المبيعات",
-        auto4_title: "العمليات وروبوتات إدارة المشاريع وتوزيع المحتوى",
-        auto4_desc: "تتبع آلي لمهام المشاريع الداخلية ومعالجة التذاكر وروبوتات إشعار الفريق ونشر محتوى مجدول متعدد المنصات.",
-        auto4_tag1: "n8n",
-        auto4_tag2: "تيليغرام بوت",
-        auto4_tag3: "تكاملات API",
-        auto4_tag4: "أتمتة المهام",
-        web1_title: "عيادة د. سقلي لطب الأسنان (Dr-SQ-KAMAL)",
-        web1_desc: "بوابة مرضى ثنائية اللغة مع نظام حجز مواعيد عبر الإنترنت.",
-        web1_tag1: "Next.js",
-        web1_tag2: "ثنائي اللغة",
-        web1_tag3: "حجز",
-        web2_title: "عيادة طب الأسنان كارتييه",
-        web2_desc: "صفحة هبوط بسيطة لطب ممارس طبي، محسّنة لمحركات البحث المحلية.",
-        web2_tag1: "سيو",
-        web2_tag2: "صفحة هبوط",
-        web2_tag3: "متجاوب",
-        web3_title: "مركز الأسنان د. البقالي وعيادة فاس",
-        web3_desc: "واجهات متجاوبة عالية التحويل مصممة للعيادات الطبية.",
-        web3_tag1: "تحويل",
-        web3_tag2: "عيادة",
-        web3_tag3: "متجاوب",
-        pricing_title: "حلول واضحة، بدون التزام",
-        pricing_subtitle: "اختر الباقة المناسبة لاحتياجات شركتك الحالية. هيكلة مرنة وشفافة.",
-        pack1_name: "الباقة التعريفية",
-        pack1_price: "1,500 درهم",
-        pack1_feat1: "موقع إلكتروني حديث وسريع (من 1 إلى 3 صفحات)",
-        pack1_feat2: "متوافق بالكامل مع الهواتف والحواسيب",
-        pack1_feat3: "تحسين ظهورك على خرائط جوجل (Google Business)",
-        pack1_feat4: "زر اتصال مباشر وسريع عبر الواتساب",
-        pack_recommended: "موصى به",
-        pack2_name: "باقة الحجز الإلكتروني",
-        pack2_price: "2,900 درهم",
-        pack2_feat1: "كل ما هو متضمن في الباقة التعريفية",
-        pack2_feat2: "نظام تفاعلي متكامل لحجز المواعيد",
-        pack2_feat3: "ربط وتزامن تلقائي مع تقويمك الخاص",
-        pack2_feat4: "رسائل تأكيد وتذكير تلقائية عبر البريد الإلكتروني",
-        pack3_name: "باقة مساعد الواتساب بالذكاء الاصطناعي",
-        pack3_price: "3,900 درهم",
-        pack3_feat1: "كل ما هو متضمن في الباقات السابقة",
-        pack3_feat2: "مجيب آلي (شاتبوت) ذكي متصل بالواتساب 24/24 ساعة",
-        pack3_feat3: "الرد التلقائي على استفسارات العملاء بالفرنسية والدارجة المغربية",
-        pack3_feat4: "تسجيل المواعيد وتأكيدها تلقائياً مباشرة من خلال المحادثة",
-        pack_cta: "اختر هذه الباقة",
-        about_title: "نبذة عني",
-        about_subtitle: "عبد الغني الرحماني — مطور ويب متخصص",
-        about_text1: "بدأت مسيرتي المهنية بتكوين متين في التطوير الرقمي من مكتب التكوين المهني وإنعاش الشغل (OFPPT). ولأنني مؤمن بأن التميز يتطلب دائماً مواكبة المستجدات، فقد أمضيت أكثر من 4 سنوات من التعلم الذاتي المستمر (منذ 2021 وحتى اليوم) في تعميق مهاراتي البرمجية وإتقان أحدث تقنيات الويب الحديثة.",
-        about_text2: "ومع حلول منتصف عام 2024، قمت بتوسيع نطاق خبرتي لتشمل دمج تقنيات الذكاء الاصطناعي وأتمتة سير العمل الرقمي؛ بهدف تزويد الشركات في جميع أنحاء المغرب بحلول رقمية ذكية، مبتكرة، وعالية الأداء تختصر الوقت وتضاعف الأرباح.",
-        contact_title: "جاهز للتعاون؟",
-        contact_desc: "دعنا نناقش مشروعك ونجد الحل المثالي لشركتك.",
-        contact_email: "إرسال بريد إلكتروني",
+        nav_dial: "الأداء",
+        nav_services: "حلول الذكاء الاصطناعي",
+        nav_portfolio: "أعمالنا",
+        nav_methode: "منهجية العمل",
+        nav_about: "المؤسسان",
+        nav_cta: "استشارة مجانية",
+        dial_label: "الجاهزية التجارية",
+        dial_sub: "صفر عميل محتمل ضائع",
+        stat_speed: "سرعة الرد على المكالمات وعروض الأسعار",
+        stat_booking: "حجز مواعيد ذاتي ومستمر",
+        stat_security: "حماية تامة للبيانات واستضافة آمنة",
+        services_title: "حلول الأعمال وأتمتة العمليات",
+        services_sub: "طوّر مبيعاتك دون زيادة أعباء العمل اليومية.",
+        tag_active: "مفعّل وجاهز",
+        svc1_title: "مستقبل المكالمات وسكرتارية ذكية 24/7",
+        status_active: "نشط 24/7",
+        svc1_desc: "يرد المساعد الصوتي الذكي فورياً، ويجيب عن استفسارات خدماتكم ويسجل المواعيد مباشرة في تقويم العمل.",
+        svc2_title: "المتابعة التلقائية لعروض الأسعار والفواتير",
+        status_sync: "تحويل المبيعات",
+        svc2_desc: "تأكيد فوري عبر الرسائل والبريد عند كل طلب، متبوعاً بمتابعات ذكية لإتمام الصفقات دون مجهود يدوي.",
+        svc3_title: "ربط وتكامل أدوات العمل اليومية",
+        status_tools: "متزامن",
+        svc3_desc: "تزامن فوري بين موقعك، بريدك، تقويمك وأنظمة الفواتير لإنهاء الإدخال اليدوي المكرر والأخطاء.",
+        portfolio_title: "نماذج ومنصات أعمال حية",
+        portfolio_sub: "واجهات صُممت لتبني الثقة وتحوّل الزوار إلى عملاء فعليين.",
+        portfolio_tag: "متصل بالإنترنت",
+        p1_title: "ورشة صيانة وميكانيك السيارات",
+        p1_desc: "موقع عملي للورش: عرض باقات الصيانة، تقدير فوري للتكلفة وحجز فترات الدخول للورشة.",
+        p1_roi: "القيمة المضافة: عروض أسعار فورية وتقليل ملحوظ لحالات الغياب عن المواعيد.",
+        p2_title: "مطعم راقٍ وحجز طاولات مباشر",
+        p2_desc: "واجهة أنيقة لعرض قائمة المأكولات وحجز الطاولات مباشرة مع تأكيد فوري عبر الرسائل.",
+        p2_roi: "القيمة المضافة: حجوزات مباشرة دون عمولات خارجية مع استغلال أمثل للطاولات.",
+        p3_title: "مركز رعاية وعيادة طبية متخصصة",
+        p3_desc: "بوابة مرضى آمنة مع نظام لحجز المواعيد وعرض احترافي للتخصصات الطبية.",
+        p3_roi: "القيمة المضافة: تخفيف الضغط على الاستقبال وإدارة منظمة لجدول الأطباء.",
+        btn_demo: "تجربة النموذج المباشر ←",
+        btn_source: "الكود المصدري",
+        process_title: "منهجية تنفيذ مشاريعنا",
+        process_sub: "نشاطكم أولاً. التكنولوجيا في خدمتكم ثانياً.",
+        process_tag: "3 خطوات واضحة",
+        step1_title: "تشخيص مجاني (15 دقيقة)",
+        step1_desc: "نحلل طريقة عملكم الحالية ونحدد المهام والاتصالات التي تتسبب في ضياع الوقت أو العملاء.",
+        step2_title: "الإعداد والربط التقني",
+        step2_desc: "ننشئ منصتكم الرقمية ونربط الأنظمة الذكية مع أدواتكم الحالية دون أي توقف لنشاطكم اليومي.",
+        step3_title: "راحة البال والمتابعة المستمرة",
+        step3_desc: "تعمل أنظمتكم بشكل ذاتي على مدار الساعة مع دعم تقني وصيانة مستمرة من طرفنا.",
+        founders_title: "المؤسسان",
+        founders_sub: "القيادة التقنية والمواكبة الميدانية المباشرة",
+        role1_pill: "تقني",
+        role1_title: "شريك مؤسس ومدير تقني",
+        role1_bio: "هندسة المنصات المخصصة، بناء الوكلاء الصوتيين وتصميم مسارات الأتمتة المتقدمة.",
+        btn_github: "مستودعات مشاريع GitHub",
+        role2_pill: "استراتيجية الأعمال",
+        role2_title: "شريك مؤسس ومدير التطوير التجاري",
+        role2_bio: "تحليل ومراجعة سير العمليات، دراسة متطلباتكم ومواكبتكم خطوة بخطوة أثناء التنفيذ.",
+        contact_title: "دعنا نناقش عملياتكم",
+        contact_sub: "لنحدد خلال 15 دقيقة المهام اليومية التي يمكن أتمتتها فوراً لتوفير وقتكم.",
+        contact_badge: "الرد خلال 24 ساعة",
         form_name: "الاسم الكامل",
-        form_business: "اسم الشركة",
+        form_business: "اسم المؤسسة أو النشاط",
         form_phone: "رقم الهاتف",
-        form_message: "الرسالة",
-        form_submit: "إرسال",
+        form_message: "الأولوية أو التحدي الرئيسي",
+        form_submit: "حجز موعد التشخيص المجاني (15 دقيقة)",
+        form_disclaimer: "مجاني وبدون أي التزام. معلوماتكم محمية وسرية تماماً.",
         footer_rights: "جميع الحقوق محفوظة."
     }
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Mobile Menu Toggle ---
+    // --- 1. Mobile Menu Toggle ---
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const navLinks = document.getElementById('nav-links');
 
-    mobileMenuBtn.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-    });
-
-    // Close menu when clicking a link
-    navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
+    if (mobileMenuBtn && navLinks) {
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
         });
-    });
 
-    // --- Language Toggle Logic ---
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    }
+
+    // --- 2. Language Toggle Logic (FR/AR) ---
     const langToggleBtn = document.getElementById('lang-toggle');
     const langFrSpan = document.querySelector('.lang-fr');
     const langArSpan = document.querySelector('.lang-ar');
@@ -295,165 +164,107 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function setLanguage(lang) {
         currentLang = lang;
-
-        // Update DOM attributes
         document.documentElement.lang = lang;
         document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
 
-        // Update Toggle UI
-        if (lang === 'ar') {
-            langArSpan.classList.add('active');
-            langFrSpan.classList.remove('active');
-        } else {
-            langFrSpan.classList.add('active');
-            langArSpan.classList.remove('active');
+        if (langArSpan && langFrSpan) {
+            if (lang === 'ar') {
+                langArSpan.classList.add('active');
+                langFrSpan.classList.remove('active');
+            } else {
+                langFrSpan.classList.add('active');
+                langArSpan.classList.remove('active');
+            }
         }
 
-        // Translate text contents
         const elements = document.querySelectorAll('[data-i18n]');
         elements.forEach(el => {
             const key = el.getAttribute('data-i18n');
-            if (translations[lang][key]) {
+            if (translations[lang] && translations[lang][key]) {
                 el.innerHTML = translations[lang][key];
             }
         });
-
-        // Update WhatsApp links
-        const waBaseUrl = 'https://wa.me/212762489130?text=';
-        const waLinks = {
-            fr: {
-                pack1: 'Bonjour Abdelghani, je suis intéressé par le Pack Vitrine',
-                pack2: 'Bonjour Abdelghani, je suis intéressé par le Pack Réservation',
-                pack3: 'Bonjour Abdelghani, je suis intéressé par le Pack Agent WhatsApp IA'
-            },
-            ar: {
-                pack1: 'مرحباً عبد الغني، أنا مهتم بالباقة التعريفية',
-                pack2: 'مرحباً عبد الغني، أنا مهتم بباقة الحجز الإلكتروني',
-                pack3: 'مرحباً عبد الغني، أنا مهتم بباقة مساعد الواتساب بالذكاء الاصطناعي'
-            }
-        };
-
-        const btnPack1 = document.getElementById('btn-pack1');
-        const btnPack2 = document.getElementById('btn-pack2');
-        const btnPack3 = document.getElementById('btn-pack3');
-
-        if (btnPack1) btnPack1.href = waBaseUrl + encodeURIComponent(waLinks[lang].pack1);
-        if (btnPack2) btnPack2.href = waBaseUrl + encodeURIComponent(waLinks[lang].pack2);
-        if (btnPack3) btnPack3.href = waBaseUrl + encodeURIComponent(waLinks[lang].pack3);
     }
 
-    langToggleBtn.addEventListener('click', () => {
-        const newLang = currentLang === 'fr' ? 'ar' : 'fr';
-        setLanguage(newLang);
-        navLinks.classList.remove('active');
-    });
+    if (langToggleBtn) {
+        langToggleBtn.addEventListener('click', () => {
+            const newLang = currentLang === 'fr' ? 'ar' : 'fr';
+            setLanguage(newLang);
+            if (navLinks) navLinks.classList.remove('active');
+        });
+    }
 
-    // Initialize links and text on load
+    // Initialize text contents
     setLanguage(currentLang);
-});
 
-// --- Beautiful Form Submission & Popup Logic ---
-document.querySelector('.form-wrapper').addEventListener('submit', function (e) {
-    e.preventDefault();
+    // --- 3. HUD Animations: Dial count-up & Progress Bars on Viewport Entry ---
+    const dialWrap = document.querySelector('.dial-wrap');
+    const dialTotal = document.querySelector('.dial-total[data-count]');
+    const bars = document.querySelectorAll('.stat-fill[data-fill]');
 
-    const submitBtn = this.querySelector('[type="submit"]');
+    const animateMetrics = () => {
+        if (dialTotal) {
+            const target = parseInt(dialTotal.getAttribute('data-count'), 10) || 100;
+            let start = null;
+            const duration = 1500;
+            const step = (ts) => {
+                if (!start) start = ts;
+                const p = Math.min((ts - start) / duration, 1);
+                const eased = 1 - Math.pow(1 - p, 3);
+                dialTotal.textContent = Math.round(eased * target);
+                if (p < 1) requestAnimationFrame(step);
+            };
+            requestAnimationFrame(step);
+        }
 
-    // Check current translation language state
-    const isAr = document.documentElement.lang === 'ar';
+        bars.forEach(bar => {
+            bar.style.width = bar.getAttribute('data-fill') + '%';
+        });
 
-    // Dynamic Button Loading states
-    submitBtn.innerText = isAr ? 'جاري الإرسال...' : 'Envoi en cours...';
-    submitBtn.disabled = true;
+        if (dialWrap) dialWrap.classList.add('animate');
+    };
 
-    // Package data using URLSearchParams so all keys show up in Google Sheets
-    const formData = new FormData(this);
-    const data = new URLSearchParams(formData);
-
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbyDQdJ18sdOERD5_i94uXtEoeBrBfbzNXoNeyr1-N2mMqPJU0zw_AEv_gRRgNbpIKOy/exec';
-
-    fetch(scriptURL, {
-        method: 'POST',
-        body: data
-    })
-    .then(() => {
-        // Trigger Success Popup
-        showPopup(
-            true,
-            isAr ? 'تم الإرسال بنجاح!' : 'Message envoyé !',
-            isAr ? 'شكراً لك. تم حفظ بياناتك وسأتواصل معك في أقرب وقت ممكن.' : 'Merci ! Vos informations ont bien été enregistrées. Je vous contacterai rapidement.',
-            isAr ? 'إغلاق' : 'Fermer'
-        );
-        this.reset();
-    })
-    .catch(error => {
-        console.error('Error!', error.message);
-        // Trigger Error Popup
-        showPopup(
-            false,
-            isAr ? 'خطأ في الإرسال' : 'Une erreur est survenue',
-            isAr ? 'يرجى التحقق من الاتصال وإعادة المحاولة.' : 'Veuillez réessayer ou me contacter directement via WhatsApp.',
-            isAr ? 'موافق' : 'D’accord'
-        );
-    })
-    .finally(() => {
-        submitBtn.innerText = isAr ? 'إرسال' : 'Envoyer';
-        submitBtn.disabled = false;
-    });
-});
-
-// Helper function to build and show the modal interface
-function showPopup(isSuccess, title, message, btnText) {
-    const modal = document.getElementById('customModal');
-    const iconWrapper = document.querySelector('.modal-icon-wrapper');
-    const svgIcon = document.getElementById('modalIcon');
-    const closeBtn = document.getElementById('modalCloseBtn');
-    
-    document.getElementById('modalTitle').innerText = title;
-    document.getElementById('modalMessage').innerText = message;
-    closeBtn.innerText = btnText;
-
-    if (isSuccess) {
-        iconWrapper.className = 'modal-icon-wrapper success';
-        svgIcon.innerHTML = `<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline>`;
-    } else {
-        iconWrapper.className = 'modal-icon-wrapper error';
-        svgIcon.innerHTML = `<circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line>`;
+    const heroSection = document.getElementById('hero');
+    if (heroSection) {
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateMetrics();
+                    io.disconnect();
+                }
+            });
+        }, { threshold: 0.2 });
+        io.observe(heroSection);
     }
 
-    // Force display layout active
-    modal.style.setProperty('display', 'flex', 'important');
-    setTimeout(() => {
-        modal.classList.add('active');
-    }, 10);
+    // --- 4. Cursor Glow Tracking on Cards ---
+    document.querySelectorAll('.bento-card').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const r = card.getBoundingClientRect();
+            card.style.setProperty('--mx', ((e.clientX - r.left) / r.width) * 100 + '%');
+            card.style.setProperty('--my', ((e.clientY - r.top) / r.height) * 100 + '%');
+        });
+    });
 
-    // Close handlers
-    const closeModal = () => {
-        modal.classList.remove('active');
-        modal.style.setProperty('display', 'none', 'important');
-    };
-    
-    closeBtn.onclick = closeModal;
-    modal.onclick = (e) => { if (e.target === modal) closeModal(); };
-}
+    // --- 5. Form Validation & Google Sheets Submission ---
+    const form = document.getElementById('consultationForm') || document.querySelector('.form-wrapper');
+    if (!form) return;
 
-// --- Real-time Inline Form Validation (FR/AR) ---
-document.addEventListener('DOMContentLoaded', () => {
-    const form = document.querySelector('.form-wrapper');
     const inputs = form.querySelectorAll('input, textarea');
+    const submitBtn = form.querySelector('[type="submit"]');
 
-    // Bilingual Error Messages
     const errorMessages = {
         fr: {
             name: "Veuillez entrer un nom valide (lettres et espaces uniquement, 3-50 caractères).",
             business: "Veuillez entrer un nom d'entreprise valide (2-60 caractères).",
-            phone: "Numéro invalide. Entrez 10 chiffres commençant par 05, 06 ou 07.",
+            phone: "Veuillez entrer un numéro de téléphone valide.",
             message: "Le message doit contenir au moins 10 caractères utiles.",
             spam: "Veuillez éviter de répéter les mêmes lettres."
         },
         ar: {
             name: "يرجى إدخال اسم صحيح (حروف ومساحات فقط، من 3 إلى 50 حرفاً).",
-            business: "يرجى إدخال اسم شركة صحيح (من 2 إلى 60 حرفاً).",
-            phone: "رقم غير صحيح. يرجى إدخال 10 أرقام تبدأ بـ 05 أو 06 أو 07.",
+            business: "يرجى إدخال اسم شركة أو نشاط صحيح (من 2 إلى 60 حرفاً).",
+            phone: "يرجى إدخال رقم هاتف صحيح للتواصل معكم.",
             message: "يجب أن تحتوي الرسالة على 10 أحرف على الأقل.",
             spam: "يرجى تجنب تكرار الأحرف بشكل عشوائي."
         }
@@ -465,27 +276,21 @@ document.addEventListener('DOMContentLoaded', () => {
         let isValid = true;
         let customMessage = "";
 
-        // 1. Check basic field requirements
         if (input.required && !input.value.trim()) {
             isValid = false;
             customMessage = lang === 'ar' ? "هذا الحقل مطلوب." : "Ce champ est obligatoire.";
-        } 
-        // 2. Check regex pattern validations (Name, Business, Phone)
-        else if (input.hasAttribute('pattern')) {
+        } else if (input.hasAttribute('pattern')) {
             const regex = new RegExp(input.getAttribute('pattern'));
             if (!regex.test(input.value)) {
                 isValid = false;
-                customMessage = errorMessages[lang][input.id];
+                customMessage = errorMessages[lang][input.id] || "Format invalide.";
             }
-        } 
-        // 3. Special Textarea Deep Validation (Message length and spam text blocker)
-        else if (input.id === 'message') {
+        } else if (input.id === 'message') {
             if (input.value.trim().length < 10) {
                 isValid = false;
                 customMessage = errorMessages[lang].message;
             } else {
-                // Catches repeated keyboard mashing spam like "ffffff" or "jjjjjjj"
-                const spamRegex = /(.)\1{4,}/g; 
+                const spamRegex = /(.)\1{4,}/g;
                 if (spamRegex.test(input.value)) {
                     isValid = false;
                     customMessage = errorMessages[lang].spam;
@@ -493,35 +298,35 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // Apply UI updates based on validation state
-        if (!isValid && input.value.length > 0) {
-            input.classList.add('invalid');
-            input.classList.remove('valid');
-            errorElement.innerText = customMessage;
-            errorElement.classList.add('visible');
-        } else if (isValid && input.value.length > 0) {
-            input.classList.remove('invalid');
-            input.classList.add('valid');
-            errorElement.innerText = "";
-            errorElement.classList.remove('visible');
-        } else {
-            // Clean state if input is completely empty
-            input.classList.remove('invalid', 'valid');
-            errorElement.innerText = "";
-            errorElement.classList.remove('visible');
+        if (errorElement) {
+            if (!isValid && input.value.length > 0) {
+                input.classList.add('invalid');
+                input.classList.remove('valid');
+                errorElement.innerText = customMessage;
+                errorElement.classList.add('visible');
+            } else if (isValid && input.value.length > 0) {
+                input.classList.remove('invalid');
+                input.classList.add('valid');
+                errorElement.innerText = "";
+                errorElement.classList.remove('visible');
+            } else {
+                input.classList.remove('invalid', 'valid');
+                errorElement.innerText = "";
+                errorElement.classList.remove('visible');
+            }
         }
 
         return isValid;
     }
 
-    // Bind real-time listening events while the user types
     inputs.forEach(input => {
         input.addEventListener('input', () => validateField(input));
-        input.addEventListener('blur', () => validateField(input)); // Checks on click-away
+        input.addEventListener('blur', () => validateField(input));
     });
 
-    // Final security check block when hitting submit button
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
         let formIsValid = true;
         inputs.forEach(input => {
             if (!validateField(input)) {
@@ -530,56 +335,127 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         if (!formIsValid) {
-            e.preventDefault();
-            e.stopImmediatePropagation(); // Hard stops the Google fetch script from firing
-
-            // Soft shake feedback effect on the first bad input field
             const firstInvalid = form.querySelector('.invalid');
             if (firstInvalid) firstInvalid.focus();
+            return;
         }
+
+        const isAr = document.documentElement.lang === 'ar';
+        const originalBtnText = submitBtn.innerText;
+        submitBtn.innerText = isAr ? 'جاري التأكيد...' : 'Envoi en cours...';
+        submitBtn.disabled = true;
+
+        const formData = new FormData(this);
+        const data = new URLSearchParams(formData);
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyDQdJ18sdOERD5_i94uXtEoeBrBfbzNXoNeyr1-N2mMqPJU0zw_AEv_gRRgNbpIKOy/exec';
+
+        fetch(scriptURL, {
+            method: 'POST',
+            body: data
+        })
+        .then(() => {
+            showPopup(
+                true,
+                isAr ? 'تم تأكيد طلبكم بنجاح!' : 'Demande bien reçue !',
+                isAr ? 'شكراً لاهتمامكم. سيتواصل معكم أحد المؤسسين خلال 24 ساعة لبدء التشخيص المجاني.' : 'Merci ! Vos informations ont bien été enregistrées. Un cofondateur vous contactera sous 24h ouvrées.',
+                isAr ? 'إغلاق' : 'Compris'
+            );
+            form.reset();
+            inputs.forEach(el => el.classList.remove('valid'));
+        })
+        .catch(error => {
+            console.error('Error!', error.message);
+            showPopup(
+                false,
+                isAr ? 'تعذر إرسال الطلب' : 'Une erreur est survenue',
+                isAr ? 'يرجى التحقق من الاتصال، أو التواصل معنا مباشرة عبر الواتساب.' : 'Veuillez vérifier votre connexion ou nous contacter directement sur WhatsApp.',
+                isAr ? 'موافق' : 'D’accord'
+            );
+        })
+        .finally(() => {
+            submitBtn.innerText = originalBtnText;
+            submitBtn.disabled = false;
+        });
     });
 });
 
-// --- HUD Animations: Dial count-up, stat fill, cursor glow ---
-document.addEventListener('DOMContentLoaded', () => {
-    const dialWrap = document.querySelector('.dial-wrap');
+// --- 6. Helper: Custom Popup Modal ---
+function showPopup(isSuccess, title, message, btnText) {
+    const modal = document.getElementById('customModal');
+    const iconWrapper = document.getElementById('modalIconWrap') || document.querySelector('.modal-icon-wrapper');
+    const svgIcon = document.getElementById('modalIcon');
+    const closeBtn = document.getElementById('modalCloseBtn');
 
-    // Count-up the central dial total
-    const dialTotal = document.querySelector('.dial-total[data-count]');
-    if (dialTotal) {
-        const target = parseInt(dialTotal.getAttribute('data-count'), 10) || 0;
-        let start = null;
-        const duration = 1600;
-        const step = (ts) => {
-            if (!start) start = ts;
-            const p = Math.min((ts - start) / duration, 1);
-            const eased = 1 - Math.pow(1 - p, 3); // ease-out cubic
-            dialTotal.textContent = Math.round(eased * target);
-            if (p < 1) requestAnimationFrame(step);
-        };
-        requestAnimationFrame(step);
+    if (!modal) return;
+
+    document.getElementById('modalTitle').innerText = title;
+    document.getElementById('modalMessage').innerText = message;
+    if (closeBtn) closeBtn.innerText = btnText;
+
+    if (iconWrapper && svgIcon) {
+        if (isSuccess) {
+            iconWrapper.className = 'modal-icon-wrapper success';
+            svgIcon.innerHTML = `<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline>`;
+        } else {
+            iconWrapper.className = 'modal-icon-wrapper error';
+            svgIcon.innerHTML = `<circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line>`;
+        }
     }
 
-    // Fill the stat bars + animate the dial ring on scroll into view
-    const bars = document.querySelectorAll('.stat-fill[data-fill]');
-    const io = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (!entry.isIntersecting) return;
-            bars.forEach(bar => {
-                bar.style.width = bar.getAttribute('data-fill') + '%';
-            });
-            if (dialWrap) dialWrap.classList.add('animate');
-            io.disconnect();
-        });
-    }, { threshold: 0.25 });
-    if (bars.length && dialWrap) io.observe(dialWrap);
+    modal.style.setProperty('display', 'flex', 'important');
+    setTimeout(() => {
+        modal.classList.add('active');
+    }, 10);
 
-    // Cursor-tracking glow across bento cards
-    document.querySelectorAll('.bento-card').forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const r = card.getBoundingClientRect();
-            card.style.setProperty('--mx', ((e.clientX - r.left) / r.width) * 100 + '%');
-            card.style.setProperty('--my', ((e.clientY - r.top) / r.height) * 100 + '%');
-        });
+    const closeModal = () => {
+        modal.classList.remove('active');
+        modal.style.setProperty('display', 'none', 'important');
+    };
+
+    if (closeBtn) closeBtn.onclick = closeModal;
+    modal.onclick = (e) => {
+        if (e.target === modal) closeModal();
+    };
+}
+
+// --- Image Lightbox Expansion ---
+const lightbox = document.getElementById('imageLightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+const lightboxClose = document.getElementById('lightboxClose');
+
+// Select all expandable images (founder headshots and avatars)
+const zoomableImages = document.querySelectorAll('.avatar-img, .profile-img, .founder-avatar');
+
+zoomableImages.forEach(img => {
+    img.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (!lightbox || !lightboxImg) return;
+        lightboxImg.src = img.currentSrc || img.src;
+        lightboxImg.alt = img.alt || 'Aperçu agrandi';
+        lightbox.classList.add('active');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden'; // Lock background scroll
     });
+});
+
+const closeLightbox = () => {
+    if (!lightbox) return;
+    lightbox.classList.remove('active');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+};
+
+if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+if (lightbox) {
+    lightbox.addEventListener('click', (e) => {
+        // Close if clicked anywhere outside the image itself
+        if (e.target !== lightboxImg) closeLightbox();
+    });
+}
+
+// Close on Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightbox && lightbox.classList.contains('active')) {
+        closeLightbox();
+    }
 });

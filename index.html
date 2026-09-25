@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abdelghani Rahmani - Full-Stack & AI Automation Engineer</title>
+    <title>AutoWealthAI — Solutions Web & Automatisation IA pour Entreprises</title>
     <meta name="description"
-        content="Portfolio de Abdelghani Rahmani, développeur web et spécialiste en automatisation IA.">
+        content="Création de sites web haute conversion et intégration d'assistants IA 24/7 pour PME et professionnels.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -22,17 +22,18 @@
         <div class="container nav-container">
             <a href="#top" class="logo">
                 <span class="logo-dot" aria-hidden="true"></span>
-                <span class="logo-text">A.Rahmani</span>
+                <span class="logo-text">AutoWealthAI</span>
             </a>
 
             <nav class="nav-links" id="nav-links">
-                <a href="#hero" data-i18n="nav_dial">Tableau de bord</a>
-                <a href="#portfolio" data-i18n="nav_portfolio">Portfolio</a>
-                <a href="#about" data-i18n="nav_about">À propos</a>
-                <a href="#contact" data-i18n="nav_contact">Contact</a>
-                <a href="#contact" class="btn btn-cta nav-cta" data-i18n="nav_cta">Consultation</a>
-                <button class="lang-toggle" id="lang-toggle">
-                    <span class="lang-fr active">FR</span> / <span class="lang-ar">AR</span>
+                <a href="#hero" data-i18n="nav_dial">Performances</a>
+                <a href="#services" data-i18n="nav_services">Solutions IA</a>
+                <a href="#portfolio" data-i18n="nav_portfolio">Réalisations</a>
+                <a href="#methode" data-i18n="nav_methode">Notre Méthode</a>
+                <a href="#about" data-i18n="nav_about">Fondateurs</a>
+                <a href="#contact" class="btn btn-cta nav-cta" data-i18n="nav_cta">Diagnostic Offert</a>
+                <button class="lang-toggle" id="lang-toggle" type="button" aria-label="Changer de langue">
+                    <span class="lang-fr active">FR</span> / <span class="lang-en">EN</span>
                 </button>
             </nav>
 
@@ -49,328 +50,369 @@
 
     <main class="bento-dashboard" id="top">
 
-        <!-- Central Hero / Radial Dial (Card A) -->
+        <!-- ============ Central Hero / ROI Value Dial (Card A) ============ -->
         <section class="bento-card bento-herorad" id="hero">
             <div class="dial-wrap">
-                <svg class="dial" viewBox="0 0 240 240" role="img" aria-label="Totale projet" aria-hidden="true">
+                <svg class="dial" viewBox="0 0 240 240" role="img" aria-label="Garantie de réponse" aria-hidden="true">
                     <defs>
                         <linearGradient id="dialGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                             <stop offset="0%" stop-color="#4ade80" />
                             <stop offset="100%" stop-color="#34d399" />
                         </linearGradient>
                     </defs>
-                    <circle class="dial-track" cx="120" cy="120" r="100" />
-                    <circle class="dial-orbit orbit-1" cx="120" cy="120" r="88" />
-                    <circle class="dial-orbit orbit-2" cx="120" cy="120" r="112" />
+                    <circle class="dial-track" cx="120" cy="120" r="98" />
+                    <circle class="dial-orbit orbit-1" cx="120" cy="120" r="86" />
                     <g class="dial-progress">
-                        <circle cx="120" cy="120" r="100" pathLength="100" />
+                        <circle cx="120" cy="120" r="98" pathLength="100" />
                     </g>
                 </svg>
+
                 <div class="dial-center">
-                    <span class="dial-total" data-count="50">0</span>
-                    <span class="dial-plus">+</span>
-                    <span class="dial-label" data-i18n="dial_total">Projets &amp; Automations</span>
-                    <span class="dial-sub" data-i18n="dial_sub">Full-Stack &amp; IA</span>
+                    <div class="dial-number-row">
+                        <span class="dial-total" data-count="100">0</span><span class="dial-plus">%</span>
+                    </div>
+                    <span class="dial-label" data-i18n="dial_label">Disponibilité Commerciale</span>
+                    <span class="dial-badge" data-i18n="dial_sub">ZÉRO PROSPECT PERDU</span>
                 </div>
             </div>
 
             <div class="dial-stats">
-                <div class="stat-item">
-                    <span class="stat-value">100<span class="stat-sym">%</span></span>
-                    <span class="stat-label" data-i18n="stat_automation">Automatisation</span>
-                    <span class="stat-bar"><span class="stat-fill" data-fill="100"></span></span>
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <span class="stat-value">&lt; 1 <small>min</small></span>
+                        <span class="stat-label" data-i18n="stat_speed">Temps de réponse devis &amp; appels</span>
+                    </div>
+                    <div class="stat-bar"><span class="stat-fill" data-fill="100"></span></div>
                 </div>
-                <div class="stat-item">
-                    <span class="stat-value">4<span class="stat-sym">+</span></span>
-                    <span class="stat-label" data-i18n="stat_exp">Années d'expérience</span>
-                    <span class="stat-bar"><span class="stat-fill" data-fill="80"></span></span>
+
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <span class="stat-value">24<small>/7</small></span>
+                        <span class="stat-label" data-i18n="stat_booking">Prise de rendez-vous autonome</span>
+                    </div>
+                    <div class="stat-bar"><span class="stat-fill" data-fill="95"></span></div>
                 </div>
-                <div class="stat-item">
-                    <span class="stat-value">24/7</span>
-                    <span class="stat-label" data-i18n="stat_support">Support client</span>
-                    <span class="stat-bar"><span class="stat-fill" data-fill="95"></span></span>
+
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <span class="stat-value">RGPD <small>&check;</small></span>
+                        <span class="stat-label" data-i18n="stat_security">Données protégées &amp; sécurisées</span>
+                    </div>
+                    <div class="stat-bar"><span class="stat-fill" data-fill="100"></span></div>
                 </div>
             </div>
         </section>
 
-        <!-- Services / AI & Automation Pipelines (Left) -->
+        <!-- ============ Tech & Tools Ecosystem Marquee ============ -->
+        <div class="tech-marquee-wrapper">
+            <span class="marquee-title">CONNECTÉ À VOS OUTILS :</span>
+            <div class="tech-marquee">
+                <div class="marquee-track">
+                    <span>Google Agenda</span>
+                    <span>WhatsApp Business</span>
+                    <span>Stripe</span>
+                    <span>Make / n8n</span>
+                    <span>Next.js</span>
+                    <span>GoHighLevel</span>
+                    <span>PostgreSQL</span>
+                    <span>OpenAI Voice</span>
+                    <span>Vercel</span>
+                    <span>Supabase</span>
+                    <!-- Duplicate for infinite marquee loop -->
+                    <span>Google Agenda</span>
+                    <span>WhatsApp Business</span>
+                    <span>Stripe</span>
+                    <span>Make / n8n</span>
+                    <span>Next.js</span>
+                    <span>GoHighLevel</span>
+                    <span>PostgreSQL</span>
+                    <span>OpenAI Voice</span>
+                    <span>Vercel</span>
+                    <span>Supabase</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============ Services / Business Solutions ============ -->
         <section class="bento-card bento-services" id="services">
             <div class="bento-head">
-                <h2 class="bento-title" data-i18n="auto_section">Automation &amp; AI Pipelines</h2>
-                <span class="bento-tag live-tag"><span class="pulse-dot"></span><span data-i18n="svc_live">En ligne</span></span>
+                <div>
+                    <h2 class="bento-title" data-i18n="services_title">Solutions Métier &amp; Automatisation</h2>
+                    <p class="bento-subtitle" data-i18n="services_sub">Développez vos ventes sans alourdir votre charge de travail.</p>
+                </div>
+                <span class="bento-tag live-tag"><span class="pulse-dot"></span><span data-i18n="tag_active">Opérationnel</span></span>
             </div>
 
             <div class="repo-grid auto-grid">
-                <!-- Pipeline 1: AI Autonomous Agents & Receptionists -->
+                <!-- Solution 1 -->
                 <article class="repo-card">
                     <div class="repo-top">
-                        <h3 class="repo-title" data-i18n="auto1_title">AI Autonomous Agents &amp; Receptionists</h3>
-                        <span class="status-live"><span class="pulse-dot"></span><span data-i18n="status_workflow">Active Workflow</span></span>
+                        <h3 class="repo-title" data-i18n="svc1_title">Standard Téléphonique &amp; Réception IA 24/7</h3>
+                        <span class="status-live"><span class="pulse-dot"></span><span data-i18n="status_active">Actif 24/7</span></span>
                     </div>
-                    <p class="repo-desc" data-i18n="auto1_desc">24/7 multilingual conversational assistants (WhatsApp/Telegram
-                        + LLMs) handling instant customer qualification and automatic appointment booking.</p>
+                    <p class="repo-desc" data-i18n="svc1_desc">L'assistant vocal décroche instantanément, renseigne sur vos prestations et cale directement les créneaux dans votre agenda professionnel.</p>
                     <div class="repo-tags">
-                        <span data-i18n="auto1_tag1">n8n</span>
-                        <span data-i18n="auto1_tag2">OpenAI API</span>
-                        <span data-i18n="auto1_tag3">WhatsApp Cloud API</span>
-                        <span data-i18n="auto1_tag4">Smart Scheduling</span>
-                    </div>
-                    <div class="card-actions">
-                        <a href="https://github.com/ABDELGHANIRH/ai-automation-workflows" target="_blank"
-                            rel="noopener noreferrer" class="repo-btn btn-ghost"><span class="gh-ico"></span><span data-i18n="view_source">View Source</span></a>
+                        <span>Zéro appel manqué</span>
+                        <span>Prise de RDV direct</span>
+                        <span>Vocale naturelle</span>
                     </div>
                 </article>
 
-                <!-- Pipeline 2: Lead Generation -->
+                <!-- Solution 2 -->
                 <article class="repo-card">
                     <div class="repo-top">
-                        <h3 class="repo-title" data-i18n="auto2_title">Autonomous Lead Gen &amp; Prospecting Pipelines</h3>
-                        <span class="status-live"><span class="pulse-dot"></span><span data-i18n="status_workflow">Active Workflow</span></span>
+                        <h3 class="repo-title" data-i18n="svc2_title">Relance Automatique des Devis &amp; Factures</h3>
+                        <span class="status-live"><span class="pulse-dot"></span><span data-i18n="status_sync">Conversion</span></span>
                     </div>
-                    <p class="repo-desc" data-i18n="auto2_desc">Automated prospect scraping, data enrichment, verification,
-                        and CRM injection workflows.</p>
+                    <p class="repo-desc" data-i18n="svc2_desc">Confirmation automatique par SMS et email dès réception d'une demande, suivie de relances intelligentes pour valider vos devis sans intervention manuelle.</p>
                     <div class="repo-tags">
-                        <span data-i18n="auto2_tag1">n8n</span>
-                        <span data-i18n="auto2_tag2">Data Extraction</span>
-                        <span data-i18n="auto2_tag3">Lead Enrichment</span>
-                        <span data-i18n="auto2_tag4">Webhooks</span>
-                    </div>
-                    <div class="card-actions">
-                        <a href="https://github.com/ABDELGHANIRH/n8n-lead-generation-pipelines" target="_blank"
-                            rel="noopener noreferrer" class="repo-btn btn-ghost"><span class="gh-ico"></span><span data-i18n="view_source">View Source</span></a>
+                        <span>Suivi automatique</span>
+                        <span>Relance SMS/Email</span>
+                        <span>Multi-canal</span>
                     </div>
                 </article>
 
-                <!-- Pipeline 3: Sales Automation -->
+                <!-- Solution 3 -->
                 <article class="repo-card">
                     <div class="repo-top">
-                        <h3 class="repo-title" data-i18n="auto3_title">Sales Automation &amp; Multi-Channel CRM Sync</h3>
-                        <span class="status-live"><span class="pulse-dot"></span><span data-i18n="status_workflow">Active Workflow</span></span>
+                        <h3 class="repo-title" data-i18n="svc3_title">Interconnexion de Vos Outils Métier</h3>
+                        <span class="status-live"><span class="pulse-dot"></span><span data-i18n="status_tools">Synchronisé</span></span>
                     </div>
-                    <p class="repo-desc" data-i18n="auto3_desc">Real-time bi-directional pipeline sync, automated follow-up
-                        sequences, deal stage tracking, and instant alerts.</p>
+                    <p class="repo-desc" data-i18n="svc3_desc">Vos formulaires web, e-mails, planning et outils de facturation communiquent ensemble. Fin des doubles saisies et des erreurs de coordination.</p>
                     <div class="repo-tags">
-                        <span data-i18n="auto3_tag1">n8n</span>
-                        <span data-i18n="auto3_tag2">GoHighLevel</span>
-                        <span data-i18n="auto3_tag3">Supabase</span>
-                        <span data-i18n="auto3_tag4">Sales Pipelines</span>
+                        <span>Zéro saisie manuelle</span>
+                        <span>Google / Outlook</span>
+                        <span>CRM &amp; Facturation</span>
                     </div>
-                    <div class="card-actions">
-                        <a href="https://github.com/ABDELGHANIRH/n8n-sales-automation-workflows" target="_blank"
-                            rel="noopener noreferrer" class="repo-btn btn-ghost"><span class="gh-ico"></span><span data-i18n="view_source">View Source</span></a>
-                    </div>
-                </article>
-
-                <!-- Pipeline 4: Operations, PM Bots & Content -->
-                <article class="repo-card">
-                    <div class="repo-top">
-                        <h3 class="repo-title" data-i18n="auto4_title">Operations, PM Bots &amp; Content Distribution</h3>
-                        <span class="status-live"><span class="pulse-dot"></span><span data-i18n="status_workflow">Active Workflow</span></span>
-                    </div>
-                    <p class="repo-desc" data-i18n="auto4_desc">Automated internal project task tracking, ticket processing,
-                        team notification bots, and scheduled cross-platform content publishing.</p>
-                    <div class="repo-tags">
-                        <span data-i18n="auto4_tag1">n8n</span>
-                        <span data-i18n="auto4_tag2">Telegram Bot</span>
-                        <span data-i18n="auto4_tag3">API Integrations</span>
-                        <span data-i18n="auto4_tag4">Task Automation</span>
-                    </div>
-                    <div class="card-actions">
-                        <a href="https://github.com/ABDELGHANIRH/n8n-project-management-bots" target="_blank"
-                            rel="noopener noreferrer" class="repo-btn btn-ghost"><span class="gh-ico"></span><span data-i18n="view_source">View Source</span></a>
-                        </div>
                 </article>
             </div>
         </section>
 
-        <!-- Portfolio / Client Web Applications (Bottom Left) -->
+        <!-- ============ Portfolio / Live Client Demonstrations ============ -->
         <section class="bento-card bento-showroom" id="portfolio">
             <div class="bento-head">
-                <h2 class="bento-title" data-i18n="web_section">Client Web Applications</h2>
-                <span class="bento-tag" data-i18n="portfolio_tag">Production</span>
+                <div>
+                    <h2 class="bento-title" data-i18n="portfolio_title">Démonstrations &amp; Plateformes Métier</h2>
+                    <p class="bento-subtitle" data-i18n="portfolio_sub">Interfaces pensées pour inspirer confiance et convertir vos visiteurs.</p>
+                </div>
+                <span class="bento-tag" data-i18n="portfolio_tag">En Ligne</span>
             </div>
 
             <div class="repo-grid web-grid">
-                <!-- Web App 1: Dr-SQ-KAMAL -->
+                <!-- Garage -->
                 <article class="repo-card">
                     <div class="repo-top">
-                        <h3 class="repo-title" data-i18n="web1_title">Clinique Dentaire Dr. Sequalli (Dr-SQ-KAMAL)</h3>
-                        <span class="status-live"><span class="pulse-dot"></span><span data-i18n="status_production">Production Ready</span></span>
+                        <h3 class="repo-title" data-i18n="p1_title">Atelier Mécanique &amp; Entretien Automobile</h3>
+                        <span class="status-live"><span class="pulse-dot"></span><span>Démonstration</span></span>
                     </div>
-                    <p class="repo-desc" data-i18n="web1_desc">Bilingual patient portal with integrated online appointment
-                        scheduling.</p>
+                    <p class="repo-desc" data-i18n="p1_desc">Site professionnel adapté aux garages : présentation claire des forfaits, formulaire de devis express et sélection directe des créneaux d'atelier.</p>
+                    <div class="roi-highlight" data-i18n="p1_roi">
+                        <strong>Impact client :</strong> Devis instantané en ligne et réduction des absences aux rendez-vous d'intervention.
+                    </div>
                     <div class="repo-tags">
-                        <span data-i18n="web1_tag1">Next.js</span>
-                        <span data-i18n="web1_tag2">Billingue</span>
-                        <span data-i18n="web1_tag3">Réservation</span>
+                        <span>Next.js</span>
+                        <span>Devis en direct</span>
+                        <span>Prise de RDV</span>
                     </div>
                     <div class="card-actions">
-                        <a href="https://github.com/ABDELGHANIRH/Dr-SQ-KAMAL" target="_blank"
-                            rel="noopener noreferrer" class="repo-btn btn-ghost"><span class="gh-ico"></span><span data-i18n="view_source">View Source</span></a>
-                        <a href="https://6a306b10c931796998593123--dr-sequalli-12dc37.netlify.app/" target="_blank"
-                            rel="noopener noreferrer" class="repo-btn btn-cta"><span data-i18n="demo">Demo &rarr;</span></a>
+                        <a href="https://mechanic-orcin.vercel.app/" target="_blank" rel="noopener noreferrer" class="repo-btn btn-cta">
+                            <span data-i18n="btn_demo">Tester la démo &rarr;</span>
+                        </a>
+                        <a href="https://github.com/ABDELGHANIRH/mechanic" target="_blank" rel="noopener noreferrer" class="repo-btn btn-ghost" title="Code source technique">
+                            <span class="gh-ico"></span><span data-i18n="btn_source">Code Source</span>
+                        </a>
                     </div>
                 </article>
 
-                <!-- Web App 2: Clinique-dentaire-Cartier -->
+                <!-- Restaurant -->
                 <article class="repo-card">
                     <div class="repo-top">
-                        <h3 class="repo-title" data-i18n="web2_title">Clinique Dentaire Cartier</h3>
-                        <span class="status-live"><span class="pulse-dot"></span><span data-i18n="status_production">Production Ready</span></span>
+                        <h3 class="repo-title" data-i18n="p2_title">Restaurant Gastronomique &amp; Réservations</h3>
+                        <span class="status-live"><span class="pulse-dot"></span><span>Démonstration</span></span>
                     </div>
-                    <p class="repo-desc" data-i18n="web2_desc">Minimalist medical practice landing page optimized for local
-                        SEO.</p>
+                    <p class="repo-desc" data-i18n="p2_desc">Vitrine interactive soignée : consultation rapide de la carte du chef et réservation directe de table avec confirmation automatique.</p>
+                    <div class="roi-highlight" data-i18n="p2_roi">
+                        <strong>Impact client :</strong> Réservations sans commission intermédiaire et optimisation du remplissage de salle.
+                    </div>
                     <div class="repo-tags">
-                        <span data-i18n="web2_tag1">SEO</span>
-                        <span data-i18n="web2_tag2">Landing</span>
-                        <span data-i18n="web2_tag3">Responsive</span>
+                        <span>React</span>
+                        <span>Réservation de table</span>
+                        <span>Mobile-First</span>
                     </div>
                     <div class="card-actions">
-                        <a href="https://github.com/ABDELGHANIRH/Clinique-dentaire-Cartier" target="_blank"
-                            rel="noopener noreferrer" class="repo-btn btn-ghost"><span class="gh-ico"></span><span data-i18n="view_source">View Source</span></a>
-                        <a href="https://6a306c36087ecb5f2e7f2428--clinic-cartier-7d92e8.netlify.app/" target="_blank"
-                            rel="noopener noreferrer" class="repo-btn btn-cta"><span data-i18n="demo">Demo &rarr;</span></a>
+                        <a href="https://restaurant-one-theta-63.vercel.app/" target="_blank" rel="noopener noreferrer" class="repo-btn btn-cta">
+                            <span data-i18n="btn_demo">Tester la démo &rarr;</span>
+                        </a>
+                        <a href="https://github.com/ABDELGHANIRH/restaurant" target="_blank" rel="noopener noreferrer" class="repo-btn btn-ghost" title="Code source technique">
+                            <span class="gh-ico"></span><span data-i18n="btn_source">Code Source</span>
+                        </a>
                     </div>
                 </article>
 
-                <!-- Web App 3: Centre-Dentaire-Dr.-El-Bakali & Cabinet Fes -->
+                <!-- Dental Clinic -->
                 <article class="repo-card">
                     <div class="repo-top">
-                        <h3 class="repo-title" data-i18n="web3_title">Centre Dentaire Dr. El-Bakali &amp; Cabinet Fès</h3>
-                        <span class="status-live"><span class="pulse-dot"></span><span data-i18n="status_production">Production Ready</span></span>
+                        <h3 class="repo-title" data-i18n="p3_title">Centre de Soins &amp; Cabinet Médical</h3>
+                        <span class="status-live"><span class="pulse-dot"></span><span>Démonstration</span></span>
                     </div>
-                    <p class="repo-desc" data-i18n="web3_desc">High-conversion responsive interfaces tailored for healthcare
-                        clinics.</p>
+                    <p class="repo-desc" data-i18n="p3_desc">Portail patient sécurisé avec module de prise de rendez-vous en ligne et présentation rassurante des spécialités médicales.</p>
+                    <div class="roi-highlight" data-i18n="p3_roi">
+                        <strong>Impact client :</strong> Allègement du secrétariat téléphonique et gestion autonome du planning praticien.
+                    </div>
                     <div class="repo-tags">
-                        <span data-i18n="web3_tag1">Conversion</span>
-                        <span data-i18n="web3_tag2">Clinique</span>
-                        <span data-i18n="web3_tag3">Responsive</span>
+                        <span>Next.js</span>
+                        <span>Prise de RDV</span>
+                        <span>Conforme Santé</span>
                     </div>
                     <div class="card-actions">
-                        <a href="https://github.com/ABDELGHANIRH/Centre-Dentaire-Dr.-El-Bakali" target="_blank"
-                            rel="noopener noreferrer" class="repo-btn btn-ghost"><span class="gh-ico"></span><span data-i18n="view_source">View Source</span></a>
-                        </div>
+                        <a href="https://6a306b10c931796998593123--dr-sequalli-12dc37.netlify.app/" target="_blank" rel="noopener noreferrer" class="repo-btn btn-cta">
+                            <span data-i18n="btn_demo">Tester la démo &rarr;</span>
+                        </a>
+                        <a href="https://github.com/ABDELGHANIRH/Dr-SQ-KAMAL" target="_blank" rel="noopener noreferrer" class="repo-btn btn-ghost" title="Code source technique">
+                            <span class="gh-ico"></span><span data-i18n="btn_source">Code Source</span>
+                        </a>
+                    </div>
                 </article>
             </div>
         </section>
 
-        <!-- About Me Profile Card (Top Right) -->
+        <!-- ============ 3-Step Process Card ============ -->
+        <section class="bento-card bento-process" id="methode">
+            <div class="bento-head">
+                <div>
+                    <h2 class="bento-title" data-i18n="process_title">Notre Méthode d'Intervention</h2> 
+                    <p class="bento-subtitle" data-i18n="process_sub">Votre activité d'abord. La technologie ensuite.</p> 
+                </div>
+                <span class="bento-tag" data-i18n="process_tag">3 Étapes Simples</span>
+            </div>
+
+            <div class="process-steps">
+                <div class="step-card">
+                    <span class="step-num">01</span>
+                    <h3 class="step-title" data-i18n="step1_title">Diagnostic Gratuit (15 min)</h3>
+                    <p class="step-desc" data-i18n="step1_desc">Nous analysons vos méthodes actuelles (gestion des appels, devis, agenda) et ciblons où vous perdez du temps ou des clients potentiels.</p>
+                </div>
+                <div class="step-card">
+                    <span class="step-num">02</span>
+                    <h3 class="step-title" data-i18n="step2_title">Mise en Place &amp; Connexion</h3>
+                    <p class="step-desc" data-i18n="step2_desc">Nous créons votre plateforme web et raccordons vos automatisations à vos outils du quotidien sans interrompre votre activité.</p>
+                </div>
+                <div class="step-card">
+                    <span class="step-num">03</span>
+                    <h3 class="step-title" data-i18n="step3_title">Tranquillité &amp; Suivi Continu</h3>
+                    <p class="step-desc" data-i18n="step3_desc">Vos systèmes opèrent en toute autonomie 24h/24. Nous assurons la maintenance, le suivi et les évolutions de vos processus.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ Fondateurs (Side-by-Side Executive Leadership) ============ -->
         <section class="bento-card bento-about" id="about">
-            <div class="about-main">
-                <div class="profile-wrap">
-                    <img src="My%20photo.jpeg" alt="Abdelghani Rahmani" class="profile-img">
-                    <span class="profile-status" title="Disponible"></span>
+            <div class="bento-head">
+                <div>
+                    <h2 class="bento-title" data-i18n="founders_title">Fondateurs</h2>
+                    <p class="bento-subtitle" data-i18n="founders_sub">Direction technique &amp; accompagnement sur le terrain</p>
                 </div>
-                <div class="about-text">
-                    <h2 class="profile-name">Abdelghani Rahmani</h2>
-                    <p class="profile-role" data-i18n="about_role">Full-Stack &amp; Ingénieur en Automatisation IA</p>
-                    <p class="about-bio" data-i18n="about_text1">Plus de 4 années de développement web autodidacte et
-                        d'intégration IA au service de vos entreprises.</p>
+                <span class="bento-tag">AutoWealthAI</span>
+            </div>
 
-                    <a href="https://github.com/ABDELGHANIRH/" target="_blank" rel="noopener noreferrer" class="about-github">
-                        <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
-                            <path
-                                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
-                        </svg>
-                        <span data-i18n="about_github">Explore GitHub Repos &amp; Automations</span>
-                    </a>
-                </div>
+            <div class="founders-showcase">
+                <!-- Abdelghani -->
+                <article class="founder-profile-card">
+                    <div class="profile-top">
+                        <div class="avatar-ring">
+                            <img src="My%20photo.jpeg" alt="Abdelghani" class="avatar-img">
+                        </div>
+                        <div class="profile-meta">
+                            <span class="role-pill" data-i18n="role1_pill">Technique</span>
+                            <h3 class="founder-name">Abdelghani</h3>
+                            <p class="founder-title" data-i18n="role1_title">Cofondateur &amp; Lead Ingénieur</p>
+                        </div>
+                    </div>
+                    <p class="founder-bio" data-i18n="role1_bio">Conception d'architectures web sur-mesure, intégration d'assistants IA et orchestration de workflows automatisés.</p>
+                    <div class="profile-chips">
+                        <span>Full-Stack</span>
+                        <span>Agents Vocaux IA</span>
+                        <span>Connexions API</span>
+                    </div>
+                    <div class="profile-cta">
+                        <a href="https://github.com/ABDELGHANIRH/" target="_blank" rel="noopener noreferrer" class="founder-link">
+                            <svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor" aria-hidden="true">
+                                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+                            </svg>
+                            <span data-i18n="btn_github">Explorer nos projets GitHub</span>
+                        </a>
+                    </div>
+                </article>
 
-                <div class="about-stats">
-                    <div class="about-stat">
-                        <span class="about-stat-val">4+</span>
-                        <span class="about-stat-label" data-i18n="stat_exp_short">Ans auto-didacte</span>
+                <!-- Abdelghani Meqdad -->
+                <article class="founder-profile-card">
+                    <div class="profile-top">
+                        <div class="avatar-ring">
+                            <img src="A.photo.png" alt="Abdelghani Meqdad" class="avatar-img">
+                        </div>
+                        <div class="profile-meta">
+                            <span class="role-pill" data-i18n="role2_pill">Stratégie Métier</span>
+                            <h3 class="founder-name">Abdelghani Meqdad</h3> 
+                            <p class="founder-title" data-i18n="role2_title">Cofondateur &amp; Développement Commercial</p> 
+                        </div>
                     </div>
-                    <div class="about-stat">
-                        <span class="about-stat-val">50+</span>
-                        <span class="about-stat-label" data-i18n="stat_proj_short">Projets &amp; Automations</span>
+                    <p class="founder-bio" data-i18n="role2_bio">Audit des flux opérationnels, analyse de vos besoins concrets et accompagnement personnalisé pour votre déploiement.</p>
+                    <div class="profile-chips">
+                        <span>Audit de Flux</span>
+                        <span>Développement Commercial</span>
+                        <span>Suivi Projet</span>
                     </div>
-                    <div class="about-stat">
-                        <span class="about-stat-val">100%</span>
-                        <span class="about-stat-label" data-i18n="stat_auto_short">Flux automatisés</span>
+                    <div class="profile-cta">
+                        <a href="tel:+33652914657" class="founder-link">
+                            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                            </svg>
+                            <span>+33 6 52 91 46 57</span> 
+                        </a>
                     </div>
-                </div>
+                </article>
             </div>
         </section>
 
-        <!-- Contact Form Glass Bento (Bottom Right) -->
+        <!-- ============ Contact Form Glass Bento ============ -->
         <section class="bento-card bento-contact" id="contact">
             <div class="bento-head">
-                <h2 class="bento-title" data-i18n="contact_title">Prêt à collaborer ?</h2>
-                <span class="bento-tag" data-i18n="contact_desc">Réponse sous 24h</span>
+                <div>
+                    <h2 class="bento-title" data-i18n="contact_title">Parlons de vos opérations</h2>
+                    <p class="bento-subtitle" data-i18n="contact_sub">Identifions en 15 minutes les tâches manuelles que vous pouvez automatiser.</p>
+                </div>
+                <span class="bento-tag" data-i18n="contact_badge">Réponse sous 24h</span>
             </div>
 
-            <form action="#" method="POST" class="form-wrapper" novalidate>
+            <form action="#" method="POST" class="form-wrapper" id="consultationForm" novalidate>
                 <div class="form-group">
-                    <label for="name" data-i18n="form_name">Nom Complet</label>
-                    <input type="text" id="name" name="name" required placeholder="Votre nom"
-                        pattern="^[A-Za-zÀ-ÿ\s]{3,50}$">
+                    <label for="name" data-i18n="form_name">Nom &amp; Prénom</label>
+                    <input type="text" id="name" name="name" required placeholder="Votre nom" pattern="^[A-Za-zÀ-ÿ\s]{3,50}$">
                     <span class="error-msg" id="name-error"></span>
                 </div>
                 <div class="form-group">
-                    <label for="business" data-i18n="form_business">Nom de l'entreprise</label>
-                    <input type="text" id="business" name="business" required placeholder="Votre entreprise"
-                        pattern="^[A-Za-z0-9À-ÿ\s\.,&'-]{2,60}$">
+                    <label for="business" data-i18n="form_business">Nom de l'entreprise ou activité</label>
+                    <input type="text" id="business" name="business" required placeholder="Votre garage, restaurant, cabinet..." pattern="^[A-Za-z0-9À-ÿ\s\.,&'-]{2,60}$">
                     <span class="error-msg" id="business-error"></span>
                 </div>
                 <div class="form-group">
                     <label for="phone" data-i18n="form_phone">Numéro de téléphone</label>
-                    <input type="tel" id="phone" name="phone" required placeholder="07 62 48 91 30"
-                        pattern="^0[5-7]\d{8}$">
+                    <input type="tel" id="phone" name="phone" required placeholder="06 52 91 46 57">
                     <span class="error-msg" id="phone-error"></span>
                 </div>
                 <div class="form-group">
-                    <label for="message" data-i18n="form_message">Message</label>
-                    <textarea id="message" name="message" rows="4" required placeholder="Votre message..."
-                        minlength="10" maxlength="1000"></textarea>
+                    <label for="message" data-i18n="form_message">Votre priorité principale</label>
+                    <textarea id="message" name="message" rows="3" required placeholder="Ex : Récupérer les appels manqués, automatiser les devis, moderniser notre site web..." minlength="10" maxlength="1000"></textarea>
                     <span class="error-msg" id="message-error"></span>
                 </div>
-                <button type="submit" class="btn btn-primary btn-full" data-i18n="form_submit">Envoyer</button>
+                <button type="submit" class="btn btn-cta btn-full" data-i18n="form_submit">Réserver mon diagnostic offert (15 min)</button>
+                <p class="form-disclaimer" data-i18n="form_disclaimer">Gratuit et sans engagement. Vos données restent strictement confidentielles.</p>
             </form>
         </section>
 
     </main>
 
-    <!-- Tech Stack Marquee (Bottom) -->
-    <section class="tech-marquee" aria-label="Technologies">
-        <div class="marquee-track">
-            <!-- Frontend & Architecture -->
-            <span>Next.js</span>
-            <span>React</span>
-            <span>TypeScript</span>
-            <span>Tailwind CSS</span>
-            <span>Vercel</span>
-            <!-- Automation & Workflows -->
-            <span>n8n</span>
-            <span>Python</span>
-            <span>Zapier</span>
-            <!-- CRM & Conversion -->
-            <span>GoHighLevel</span>
-            <span>Meta APIs / CAPI</span>
-            <!-- AI & Backend Services -->
-            <span>OpenAI</span>
-            <span>Supabase</span>
-            <span>PostgreSQL</span>
-            <span>REST APIs / Webhooks</span>
-            <!-- Duplicate set for seamless infinite loop -->
-            <span>Next.js</span>
-            <span>React</span>
-            <span>TypeScript</span>
-            <span>Tailwind CSS</span>
-            <span>Vercel</span>
-            <span>n8n</span>
-            <span>Python</span>
-            <span>Zapier</span>
-            <span>GoHighLevel</span>
-            <span>Meta APIs / CAPI</span>
-            <span>OpenAI</span>
-            <span>Supabase</span>
-            <span>PostgreSQL</span>
-            <span>REST APIs / Webhooks</span>
-        </div>
-    </section>
-
-    <!-- Footer -->
+    <!-- ============ Footer ============ -->
     <footer class="footer" id="footer">
         <div class="container footer-container">
             <div class="contact-details">
@@ -378,42 +420,47 @@
                     <strong>Email:</strong> <a href="mailto:founder@autowealthai.com">founder@autowealthai.com</a>
                 </div>
                 <div class="contact-item">
-                    <strong>WhatsApp:</strong> <a href="https://wa.me/212762489130">07 62 48 91 30</a>
+                    <strong>WhatsApp:</strong> <a href="https://wa.me/33652914657" target="_blank" rel="noopener noreferrer">+33 6 52 91 46 57</a> 
                 </div>
                 <div class="contact-item">
-                    <strong>Téléphone:</strong> <a href="tel:+212762489130">07 62 48 91 30</a>
+                    <strong>Téléphone:</strong> <a href="tel:+33652914657">+33 6 52 91 46 57</a> 
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Abdelghani Rahmani. <span data-i18n="footer_rights">Tous droits réservés.</span></p>
+            <p>&copy; 2026 AutoWealthAI. <span data-i18n="footer_rights">Tous droits réservés.</span></p>
         </div>
     </footer>
 
-    <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/212762489130" target="_blank" rel="noopener noreferrer" class="whatsapp-float"
-        aria-label="WhatsApp Contact">
+    <!-- ============ WhatsApp Floating Button ============ -->
+    <a href="https://wa.me/33652914657" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Contacter sur WhatsApp">
         <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
             <path
                 d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
         </svg>
     </a>
 
-    <!-- Success / Error Modal -->
+    <!-- Custom Modal Feedback -->
     <div id="customModal" class="modal-overlay" style="display: none !important;">
         <div class="modal-card">
-            <div class="modal-icon-wrapper">
+            <div class="modal-icon-wrapper" id="modalIconWrap">
                 <svg id="modalIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                     stroke-linecap="round" stroke-linejoin="round"></svg>
             </div>
             <h3 id="modalTitle" class="modal-title"></h3>
             <p id="modalMessage" class="modal-text"></p>
-            <button id="modalCloseBtn" class="btn btn-primary"></button>
+            <button id="modalCloseBtn" class="btn btn-primary" type="button">Compris</button>
+        </div>
+    </div>
+
+    <!-- Image Lightbox Modal -->
+    <div id="imageLightbox" class="lightbox-overlay" aria-hidden="true">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Fermer">&times;</button>
+        <div class="lightbox-content">
+            <img id="lightboxImg" src="" alt="Aperçu agrandi">
         </div>
     </div>
 
     <script src="script.js"></script>
-
 </body>
-
 </html>

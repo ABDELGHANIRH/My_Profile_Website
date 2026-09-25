@@ -1,45 +1,38 @@
 /* ============================================================
-   Portfolio — Dark Glassmorphic HUD Dashboard
+   AutoWealthAI — Dark Glassmorphic HUD Dashboard
    Obsidian background · Frosted glass cards · Sage/Mint glow
    ============================================================ */
 
 /* ---- Custom Properties / Tokens ---- */
 :root {
-  /* Background surface */
   --bg-deep: #090b0e;
   --bg-card: rgba(255, 255, 255, 0.03);
   --glass-blur: 16px;
   --glass-border: rgba(255, 255, 255, 0.08);
-  --border-strong: rgba(255, 255, 255, 0.12);
+  --border-strong: rgba(255, 255, 255, 0.14);
 
-  /* Text */
   --text-color: #f1f5f9;
-  --text-muted: #8b949e;
-  --text-faint: #5b6472;
+  --text-muted: #94a3b8;
+  --text-faint: #64748b;
 
-  /* Accent (sage / mint) */
   --accent: #4ade80;
   --accent-soft: #34d399;
   --accent-deep: #1f7a5a;
   --glow: rgba(74, 222, 128, 0.35);
   --glow-soft: rgba(52, 211, 153, 0.18);
 
-  /* Status */
   --success: #4ade80;
   --warning: #fbbf24;
   --info: #38bdf8;
 
-  /* Typography */
   --font-sans: 'Inter', 'Outfit', sans-serif;
   --font-ar-sans: 'Cairo', sans-serif;
 
-  /* Spacing */
   --space-xs: 0.5rem;
   --space-sm: 1rem;
   --space-md: 2rem;
   --space-lg: 3rem;
 
-  /* Layout */
   --container-max-width: 1200px;
   --header-height: 72px;
   --radius: 20px;
@@ -51,7 +44,6 @@
   --font-sans: var(--font-ar-sans);
 }
 
-/* ---- Reset & Base ---- */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -71,7 +63,6 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
-  /* Atmospheric glow + faint fixed grid */
   background-image:
     radial-gradient(circle at 85% 15%, rgba(65, 140, 110, 0.22) 0%, transparent 50%),
     radial-gradient(circle at 12% 88%, rgba(65, 160, 120, 0.16) 0%, transparent 45%),
@@ -81,7 +72,6 @@ body {
   background-attachment: fixed;
 }
 
-/* Custom scrollbar (theme) */
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -119,10 +109,6 @@ a {
   padding: 0 var(--space-md);
 }
 
-.section-padding {
-  padding: var(--space-lg) 0;
-}
-
 /* ============================================================
    Floating Pill Navigation
    ============================================================ */
@@ -131,7 +117,7 @@ a {
   top: 16px;
   left: 50%;
   transform: translateX(-50%);
-  width: min(96%, 1100px);
+  width: min(96%, 1160px);
   z-index: 1000;
   background: var(--bg-card);
   backdrop-filter: blur(var(--glass-blur)) saturate(140%);
@@ -153,7 +139,7 @@ a {
 .logo {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.55rem;
   font-weight: 700;
   letter-spacing: -0.5px;
   font-size: 1.15rem;
@@ -173,13 +159,13 @@ a {
   display: flex;
   align-items: center;
   gap: 0.25rem;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
 }
 
 .nav-links a:not(.nav-cta) {
   position: relative;
   color: var(--text-muted);
-  padding: 0.5rem 0.85rem;
+  padding: 0.45rem 0.75rem;
   border-radius: 999px;
   font-weight: 500;
   white-space: nowrap;
@@ -192,9 +178,9 @@ a {
 .nav-links a:not(.nav-cta)::after {
   content: '';
   position: absolute;
-  left: 0.85rem;
-  right: 0.85rem;
-  bottom: 0.2rem;
+  left: 0.75rem;
+  right: 0.75rem;
+  bottom: 0.15rem;
   height: 2px;
   border-radius: 2px;
   background: linear-gradient(90deg, var(--accent), var(--accent-soft));
@@ -216,17 +202,17 @@ a {
   border: 1px solid var(--glass-border);
   cursor: pointer;
   font-family: var(--font-sans);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   color: var(--text-muted);
-  padding: 0.45rem 0.7rem;
+  padding: 0.4rem 0.65rem;
   border-radius: 999px;
   display: flex;
   align-items: center;
-  gap: 0.15rem;
+  gap: 0.2rem;
   white-space: nowrap;
 }
 
-.lang-toggle .active {
+.lang-toggle span.active {
   font-weight: 700;
   color: var(--accent);
 }
@@ -246,15 +232,10 @@ a {
 .bento-dashboard {
   display: flex;
   flex-direction: column;
-  gap: clamp(3rem, 6vw, 5rem);
-  max-width: 1320px;
+  gap: clamp(2.5rem, 5vw, 4rem);
+  max-width: 1240px;
   margin: 0 auto;
-  padding: calc(var(--header-height) + 2.75rem) var(--space-md) var(--space-lg);
-}
-
-.bento-dashboard-grid {
-  display: grid;
-  gap: clamp(6rem, 10vw, 9rem);
+  padding: calc(var(--header-height) + 2.5rem) var(--space-md) var(--space-lg);
 }
 
 .bento-card {
@@ -263,7 +244,7 @@ a {
   -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(140%);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-lg);
-  padding: clamp(2rem, 3vw, 2.75rem);
+  padding: clamp(1.8rem, 3vw, 2.5rem);
   position: relative;
   overflow: hidden;
   transition: var(--transition);
@@ -272,32 +253,15 @@ a {
 
 .bento-card:hover {
   border-color: var(--border-strong);
-  transform: translateY(-2px);
   box-shadow: 0 14px 44px rgba(0, 0, 0, 0.4), 0 0 24px var(--glow-soft);
-}
-
-.bento-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  border-radius: inherit;
-  background: radial-gradient(600px circle at var(--mx, 20%) var(--my, 10%),
-      rgba(255, 255, 255, 0.04), transparent 45%);
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-
-.bento-card:hover::before {
-  opacity: 1;
 }
 
 .bento-head {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: var(--space-sm);
-  margin-bottom: var(--space-sm);
+  margin-bottom: 1.75rem;
 }
 
 .bento-title {
@@ -307,8 +271,15 @@ a {
   color: var(--text-color);
 }
 
+.bento-subtitle {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
 .bento-tag {
   font-size: 0.72rem;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--text-muted);
@@ -341,21 +312,21 @@ a {
 }
 
 /* ============================================================
-   Central Hero / Radial Dial (Card A)
+   Refined Hero / Dial & Performance Stats
    ============================================================ */
 .bento-herorad {
-  display: flex;
+  display: grid;
+  grid-template-columns: 270px 1fr;
   align-items: center;
-  justify-content: center;
-  gap: clamp(1.5rem, 4vw, 4rem);
-  flex-wrap: wrap;
-  padding: var(--space-lg) var(--space-md);
+  gap: clamp(2rem, 4vw, 4rem);
+  padding: clamp(2rem, 3.5vw, 2.75rem);
 }
 
 .dial-wrap {
   position: relative;
   width: 260px;
   height: 260px;
+  margin: 0 auto;
   flex-shrink: 0;
 }
 
@@ -367,30 +338,30 @@ a {
 
 .dial-track {
   fill: none;
-  stroke: rgba(255, 255, 255, 0.06);
-  stroke-width: 10;
+  stroke: rgba(255, 255, 255, 0.05);
+  stroke-width: 8;
 }
 
 .dial-orbit {
   fill: none;
-  stroke: rgba(74, 222, 128, 0.12);
+  stroke: rgba(74, 222, 128, 0.1);
   stroke-width: 1;
-  stroke-dasharray: 3 7;
+  stroke-dasharray: 4 6;
 }
 
 .dial-progress circle {
   fill: none;
   stroke: url(#dialGrad);
-  stroke-width: 10;
+  stroke-width: 8;
   stroke-linecap: round;
   stroke-dasharray: 100 100;
   stroke-dashoffset: 100;
-  filter: drop-shadow(0 0 8px var(--glow));
+  filter: drop-shadow(0 0 10px rgba(74, 222, 128, 0.4));
   transition: stroke-dashoffset 1.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .dial-wrap.animate .dial-progress circle {
-  stroke-dashoffset: 20;
+  stroke-dashoffset: 8;
 }
 
 .dial-center {
@@ -401,81 +372,102 @@ a {
   align-items: center;
   justify-content: center;
   text-align: center;
-  gap: 0.15rem;
+  padding: 1.25rem;
+}
+
+.dial-number-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  line-height: 1;
+  margin-bottom: 0.25rem;
 }
 
 .dial-total {
-  font-size: 3rem;
+  font-size: 2.85rem;
   font-weight: 800;
-  line-height: 1;
-  color: var(--text-color);
-  letter-spacing: -1px;
-  display: inline-flex;
+  letter-spacing: -1.5px;
+  color: #ffffff;
 }
 
 .dial-plus {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: var(--accent);
   margin-left: 2px;
 }
 
 .dial-label {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 600;
-  color: var(--text-color);
-  margin-top: 0.4rem;
+  color: #e2e8f0;
+  letter-spacing: -0.2px;
+  margin-bottom: 0.4rem;
+  max-width: 180px;
+  line-height: 1.25;
 }
 
-.dial-sub {
-  font-size: 0.72rem;
+.dial-badge {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  background: rgba(74, 222, 128, 0.1);
+  border: 1px solid rgba(74, 222, 128, 0.25);
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--text-muted);
 }
 
 .dial-stats {
   display: flex;
   flex-direction: column;
-  gap: var(--space-sm);
-  min-width: 200px;
-  flex: 1 1 220px;
+  gap: 1.35rem;
+  width: 100%;
 }
 
-.stat-item {
-  display: grid;
-  grid-template-columns: 64px 1fr;
-  grid-template-rows: auto auto;
-  column-gap: 1rem;
-  align-items: center;
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  width: 100%;
+}
+
+.stat-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
 }
 
 .stat-value {
-  grid-row: 1 / 3;
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--text-color);
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #ffffff;
+  min-width: 80px;
   letter-spacing: -0.5px;
   white-space: nowrap;
 }
 
-.stat-sym {
-  font-size: 0.95rem;
+.stat-value small {
+  font-size: 0.85rem;
+  font-weight: 700;
   color: var(--accent);
+  margin-left: 2px;
 }
 
 .stat-label {
-  grid-column: 2;
   font-size: 0.85rem;
   color: var(--text-muted);
+  line-height: 1.4;
+  text-align: right;
 }
 
 .stat-bar {
-  grid-column: 2;
-  margin-top: 0.3rem;
-  height: 5px;
+  width: 100%;
+  height: 6px;
   border-radius: 99px;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.06);
   overflow: hidden;
 }
 
@@ -485,29 +477,107 @@ a {
   width: 0;
   border-radius: 99px;
   background: linear-gradient(90deg, var(--accent), var(--accent-soft));
-  box-shadow: 0 0 8px var(--glow);
-  transition: width 1.2s ease;
+  box-shadow: 0 0 10px rgba(74, 222, 128, 0.45);
+  transition: width 1.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* ============================================================
-   Repo Cards — Automation & Client Web Applications
+   Enhanced Ecosystem Marquee (Fixed for Mobile GPU Animation)
+   ============================================================ */
+.tech-marquee-wrapper {
+  background: rgba(14, 23, 34, 0.45);
+  border: 1px solid var(--glass-border);
+  border-radius: 1.25rem;
+  padding: 0.85rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  overflow: hidden;
+  margin: -0.5rem 0 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.marquee-title {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text-faint);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.tech-marquee {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+}
+
+.marquee-track {
+  display: flex;
+  gap: 0.65rem;
+  width: max-content;
+  white-space: nowrap;
+  will-change: transform;
+  -webkit-animation: marqueeMove 28s linear infinite;
+  animation: marqueeMove 28s linear infinite;
+}
+
+.marquee-track:hover {
+  -webkit-animation-play-state: paused;
+  animation-play-state: paused;
+}
+
+.marquee-track span {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #cbd5e1;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: var(--transition);
+}
+
+.marquee-track span:hover {
+  color: var(--accent);
+  border-color: rgba(74, 222, 128, 0.35);
+  background: rgba(74, 222, 128, 0.08);
+}
+
+@-webkit-keyframes marqueeMove {
+  0% { -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); }
+  100% { -webkit-transform: translate3d(-50%, 0, 0); transform: translate3d(-50%, 0, 0); }
+}
+
+@keyframes marqueeMove {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+/* ============================================================
+   Repo & Showcase Cards
    ============================================================ */
 .repo-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
-  gap: var(--space-sm);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: 1.35rem;
 }
 
 .repo-card {
   background: rgba(14, 27, 42, 0.55);
   backdrop-filter: blur(16px) saturate(140%);
   -webkit-backdrop-filter: blur(16px) saturate(140%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 1rem; /* rounded-2xl */
-  padding: var(--space-sm);
+  border: 1px solid var(--glass-border);
+  border-radius: 1.15rem;
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 0.65rem;
+  gap: 0.8rem;
   transition: var(--transition);
 }
 
@@ -525,41 +595,55 @@ a {
 }
 
 .repo-title {
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 600;
   color: var(--text-color);
-  line-height: 1.3;
+  line-height: 1.35;
 }
 
 .repo-desc {
-  font-size: 0.82rem;
+  font-size: 0.86rem;
   color: var(--text-muted);
-  flex-grow: 1;
+  line-height: 1.55;
+}
+
+.roi-highlight {
+  font-size: 0.82rem;
+  color: #cbd5e1;
+  background: rgba(74, 222, 128, 0.05);
+  border-left: 3px solid var(--accent);
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  line-height: 1.45;
+}
+
+.roi-highlight strong {
+  color: var(--accent);
 }
 
 .repo-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem;
+  margin-top: auto;
 }
 
 .repo-tags span {
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   color: var(--text-muted);
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid var(--glass-border);
-  padding: 0.25rem 0.6rem;
+  padding: 0.25rem 0.65rem;
   border-radius: 999px;
   white-space: nowrap;
 }
 
-/* Live / production status pill */
 .status-live {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
   flex-shrink: 0;
-  font-size: 0.66rem;
+  font-size: 0.68rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -576,20 +660,18 @@ a {
   height: 7px;
 }
 
-/* Card action row: GitHub source + Demo buttons */
 .card-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-top: auto;
-  padding-top: 0.25rem;
+  padding-top: 0.4rem;
 }
 
 .repo-btn {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  padding: 0.45rem 0.85rem;
+  padding: 0.45rem 0.95rem;
   font-family: var(--font-sans);
   font-weight: 600;
   font-size: 0.8rem;
@@ -599,10 +681,8 @@ a {
   text-decoration: none;
   transition: var(--transition);
   white-space: nowrap;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
-/* GitHub octocat icon rendered as a CSS mask (accounts for RTL) */
 .repo-btn .gh-ico {
   width: 15px;
   height: 15px;
@@ -619,7 +699,7 @@ a {
 }
 
 .repo-btn.btn-ghost:hover {
-  border-color: rgba(74, 222, 128, 0.45);
+  border-color: var(--accent);
   color: var(--accent);
   box-shadow: 0 0 14px var(--glow-soft);
   transform: translateY(-1px);
@@ -632,285 +712,223 @@ a {
 }
 
 .repo-btn.btn-cta:hover {
-  border-color: transparent;
   box-shadow: 0 0 20px var(--glow);
   transform: translateY(-1px);
 }
 
 /* ============================================================
-   About Profile Card (Top Right)
+   3-Step Method Section
    ============================================================ */
-   .bento-about {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: var(--space-sm);
-  }
-  
-  /* Base Layout (Mobile First: Centered Vertical Stack) */
-  .about-main {
-    display: grid;
-    grid-template-columns: 1fr;
-    align-items: center;
-    justify-items: center;
-    gap: 1.5rem;
-    width: 100%;
-  }
-  
-  /* Avatar Wrapper */
-  .profile-wrap {
-    position: relative;
-    width: 260px;
-    height: 260px;
-    flex-shrink: 0;
-  }
-  
-  .profile-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 2px solid rgba(16, 185, 129, 0.4);
-    box-shadow: 0 10px 34px rgba(0, 0, 0, 0.45), 0 0 26px var(--glow-soft), 0 0 0 6px rgba(255, 255, 255, 0.03);
-  }
-  
-  .profile-status {
-    position: absolute;
-    bottom: 24px !important;
-    right: 24px !important;
-    left: auto !important;
-    top: auto !important;
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    background: var(--success, #10b981);
-    border: 3px solid #090b0e;
-    box-shadow: 0 0 10px rgba(16, 185, 129, 0.6);
-    z-index: 5;
-    pointer-events: none;
-  }
-  
-  /* Ensure no RTL rule overrides the position */
-  [dir="rtl"] .profile-status {
-    right: 24px !important;
-    left: auto !important;
-  }
-  /* Middle Column: Centered Text & Elements */
-  .about-text {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    gap: 0.75rem;
-    width: 100%;
-  }
-  
-  .profile-name {
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: var(--text-color);
-    margin: 0;
-    text-align: center;
-  }
-  
-  .profile-role {
-    font-size: 0.85rem;
-    color: var(--accent);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    font-weight: 600;
-    margin: 0;
-    text-align: center;
-  }
-  
-  .about-bio {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    line-height: 1.6;
-    max-width: 48ch;
-    margin: 0.25rem 0 0.5rem;
-    text-align: center;
-  }
-  
-  /* GitHub Button */
-  .about-github {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1.15rem;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 9999px;
-    color: var(--text-color);
-    font-size: 0.85rem;
-    text-decoration: none;
-    transition: all 0.25s ease;
-    margin: 0 auto;
-  }
-  
-  .about-github svg {
-    width: 16px;
-    height: 16px;
-  }
-  
-  .about-github:hover {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(16, 185, 129, 0.4);
-    box-shadow: 0 0 16px rgba(16, 185, 129, 0.18);
-  }
-  
-  /* Right Column: Stat Boxes */
-  .about-stats {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    width: 100%;
-    max-width: 220px;
-  }
-  
-  .about-stat {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 14px;
-    padding: 0.85rem 1.25rem;
-    text-align: center;
-    transition: border-color 0.25s ease;
-  }
-  
-  .about-stat:hover {
-    border-color: rgba(255, 255, 255, 0.18);
-  }
-  
-  .about-stat-val {
-    display: block;
-    font-size: 1.35rem;
-    font-weight: 700;
-    color: var(--text-color);
-  }
-  
-  .about-stat-label {
-    display: block;
-    font-size: 0.75rem;
-    color: var(--text-muted);
-    margin-top: 0.2rem;
-  }
-  
-  /* ============================================================
-     Desktop (min-width: 769px) - Pinned 3-Column Flow
-     ============================================================ */
-  @media (min-width: 769px) {
-    .about-main {
-      grid-template-columns: auto minmax(0, 1fr) auto;
-      justify-items: center;
-      align-items: center;
-      gap: clamp(1.5rem, 3vw, 2.5rem);
-      direction: ltr; /* Keeps [Photo] [Text] [Stats] pinned in order */
-    }
-  
-    .about-text {
-      align-items: center;
-      text-align: center;
-      direction: ltr;
-      max-width: 50ch;
-    }
-  
-    .about-stats {
-      width: 200px;
-    }
-  }
-  
-  /* ============================================================
-     Arabic (RTL) Overrides (Preserves Layout Structure)
-     ============================================================ */
-  [dir="rtl"] .about-text {
-    direction: rtl;
-    text-align: center;
-  }
-  
-  [dir="rtl"] .about-stats {
-    direction: rtl;
-  }
-  
-  [dir="rtl"] .profile-status {
-    right: auto;
-    left: 12px;
-  }
-/* GitHub profile badge (frosted glass) */
-.about-github {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-  margin-inline: auto; /* mx-auto — centers the pill inside the column (RTL-safe) */
-  padding: 0.55rem 1.1rem;
-  font-size: 0.82rem;
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.step-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--glass-border);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+}
+
+.step-card:hover {
+  border-color: rgba(74, 222, 128, 0.3);
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.step-num {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 0.75rem;
+}
+
+.step-title {
+  font-size: 1.05rem;
   font-weight: 600;
-  color: var(--text-color);
-  background: var(--bg-card);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 999px;
-  backdrop-filter: blur(var(--glass-blur)) saturate(140%);
-  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(140%);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
-  max-width: 100%;
-  transition: var(--transition);
+  color: #fff;
+  margin-bottom: 0.5rem;
 }
 
-.about-github svg {
-  width: 16px;
-  height: 16px;
-  flex-shrink: 0;
+.step-desc {
+  font-size: 0.85rem;
   color: var(--text-muted);
-  transition: var(--transition);
-}
-
-.about-github:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-  box-shadow: 0 0 22px var(--glow-soft);
-  transform: translateY(-2px);
-}
-
-.about-github:hover svg {
-  color: var(--accent);
-}
-
-.about-stats {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
-  width: 100%;
-  min-width: 0;
-}
-
-.about-stat {
-  min-width: 180px; /* w-45 → w-56 */
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 12px; /* rounded-xl */
-  padding: 1rem 1.5rem; /* py-4 px-6 */
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-}
-
-.about-stat-val {
-  font-size: 1.5rem; /* text-2xl */
-  font-weight: 700; /* font-bold */
-  line-height: 1.15;
-  color: var(--text-color);
-  white-space: nowrap;
-}
-
-.about-stat-label {
-  font-size: 0.875rem; /* text-sm */
-  color: var(--text-muted); /* slate-400 */
-  line-height: 1.35;
+  line-height: 1.55;
 }
 
 /* ============================================================
-   Contact Form Glass Bento (Bottom Right)
+   Fondateurs — Expanded & Balanced Glassmorphic Cards (#about)
+   ============================================================ */
+.bento-about {
+  display: flex;
+  flex-direction: column;
+}
+
+.founders-showcase {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.founder-profile-card {
+  background: rgba(14, 23, 34, 0.45);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.5rem;
+  padding: 2.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 380px;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.founder-profile-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(74, 222, 128, 0.4);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.5), 0 0 30px var(--glow-soft);
+  background: rgba(16, 28, 42, 0.55);
+}
+
+.founder-profile-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: radial-gradient(circle at 50% 0%, rgba(74, 222, 128, 0.08), transparent 70%);
+  pointer-events: none;
+}
+
+.profile-top {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  margin-bottom: 1.4rem;
+}
+
+.avatar-ring {
+  width: 82px;
+  height: 82px;
+  border-radius: 50%;
+  padding: 2.5px;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-soft) 50%, rgba(255, 255, 255, 0.15) 100%);
+  flex-shrink: 0;
+  box-shadow: 0 0 24px var(--glow-soft);
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #0d1117;
+  cursor: zoom-in;
+  transition: transform 0.25s ease;
+}
+
+.avatar-img:hover {
+  transform: scale(1.06);
+}
+
+.profile-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.role-pill {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  background: rgba(74, 222, 128, 0.1);
+  border: 1px solid rgba(74, 222, 128, 0.25);
+  padding: 0.2rem 0.7rem;
+  border-radius: 9999px;
+  width: fit-content;
+  margin-bottom: 0.45rem;
+}
+
+.founder-name {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.founder-title {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin-top: 0.2rem;
+}
+
+.founder-bio {
+  font-size: 0.95rem;
+  color: #cbd5e1;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  min-height: 52px;
+}
+
+.profile-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.profile-chips span {
+  font-size: 0.76rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--text-muted);
+  padding: 0.35rem 0.75rem;
+  border-radius: 8px;
+}
+
+.profile-cta {
+  margin-top: auto;
+}
+
+.founder-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--glass-border);
+  color: var(--text-color);
+  padding: 0.65rem 1.3rem;
+  border-radius: 999px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.founder-link:hover {
+  background: rgba(74, 222, 128, 0.12);
+  border-color: var(--accent);
+  color: var(--accent);
+  box-shadow: 0 0 18px var(--glow-soft);
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   Contact Form Glass Bento
    ============================================================ */
 .form-wrapper {
   display: flex;
@@ -957,6 +975,13 @@ a {
   background: rgba(255, 255, 255, 0.05);
 }
 
+.form-disclaimer {
+  font-size: 0.76rem;
+  color: var(--text-faint);
+  text-align: center;
+  margin-top: 0.3rem;
+}
+
 .error-msg {
   font-size: 0.78rem;
   color: #f87171;
@@ -981,119 +1006,6 @@ a {
 .form-group input.valid,
 .form-group textarea.valid {
   border-color: var(--success) !important;
-}
-
-[dir="rtl"] .error-msg {
-  text-align: right;
-  font-family: var(--font-ar-sans);
-}
-
-/* ============================================================
-   Footer & Contact Details
-   ============================================================ */
-.footer {
-  padding: var(--space-lg) 0 1rem;
-  border-top: 1px solid var(--glass-border);
-  margin-top: clamp(4rem, 7vw, 6rem);
-}
-
-.footer-container {
-  text-align: center;
-  padding-bottom: var(--space-sm);
-}
-
-.contact-details {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: var(--space-sm) var(--space-md);
-  margin-bottom: var(--space-sm);
-}
-
-.contact-item {
-  font-size: 0.9rem;
-  color: var(--text-muted);
-}
-
-.contact-item strong {
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  font-size: 0.72rem;
-  margin-right: 0.4rem;
-  color: var(--text-faint);
-}
-
-[dir="rtl"] .contact-item strong {
-  margin-right: 0;
-  margin-left: 0.4rem;
-}
-
-.contact-item a {
-  color: var(--text-color);
-}
-
-.contact-item a:hover {
-  color: var(--accent);
-}
-
-.footer-bottom {
-  text-align: center;
-  padding-top: var(--space-sm);
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-  font-size: 0.8rem;
-  color: var(--text-faint);
-}
-
-/* ============================================================
-   Tech Stack Marquee
-   ============================================================ */
-.tech-marquee {
-  max-width: 1320px;
-  margin: clamp(6rem, 10vw, 9rem) auto;
-  padding: 0 var(--space-md);
-  overflow: hidden;
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
-  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
-}
-
-.marquee-track {
-  display: flex;
-  gap: var(--space-sm);
-  width: max-content;
-  animation: marquee 28s linear infinite;
-}
-
-.marquee-track:hover {
-  animation-play-state: paused;
-}
-
-.marquee-track span {
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  color: var(--text-faint);
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 0.5rem 1rem;
-  border-radius: 999px;
-  white-space: nowrap;
-  filter: grayscale(1);
-  transition: var(--transition);
-}
-
-.marquee-track span:hover {
-  color: var(--accent);
-  border-color: var(--accent-deep);
-  filter: none;
-}
-
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
-[dir="rtl"] .marquee-track {
-  animation-direction: reverse;
 }
 
 /* ============================================================
@@ -1147,11 +1059,6 @@ a {
   box-shadow: 0 0 14px var(--glow-soft);
 }
 
-.btn-small {
-  padding: 0.45rem 1rem;
-  font-size: 0.85rem;
-}
-
 .btn-full {
   width: 100%;
   min-height: 48px;
@@ -1162,7 +1069,58 @@ a {
 }
 
 /* ============================================================
-   WhatsApp Float
+   Footer & Contact Details
+   ============================================================ */
+.footer {
+  padding: var(--space-lg) 0 1rem;
+  border-top: 1px solid var(--glass-border);
+  margin-top: clamp(3rem, 6vw, 5rem);
+}
+
+.footer-container {
+  text-align: center;
+  padding-bottom: var(--space-sm);
+}
+
+.contact-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-sm) var(--space-md);
+  margin-bottom: var(--space-sm);
+}
+
+.contact-item {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.contact-item strong {
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.72rem;
+  margin-right: 0.4rem;
+  color: var(--text-faint);
+}
+
+.contact-item a {
+  color: var(--text-color);
+}
+
+.contact-item a:hover {
+  color: var(--accent);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: var(--space-sm);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 0.8rem;
+  color: var(--text-faint);
+}
+
+/* ============================================================
+   WhatsApp Floating Button
    ============================================================ */
 .whatsapp-float {
   position: fixed;
@@ -1186,13 +1144,8 @@ a {
   box-shadow: 0 0 24px rgba(37, 211, 102, 0.5);
 }
 
-[dir="rtl"] .whatsapp-float {
-  right: auto;
-  left: var(--space-sm);
-}
-
 /* ============================================================
-   Custom Popup Modal (kept dark, glass-tuned)
+   Custom Popup Modal
    ============================================================ */
 .modal-overlay {
   position: fixed !important;
@@ -1275,42 +1228,103 @@ a {
 }
 
 /* ============================================================
-   Responsive
+   Clickable Image Lightbox (Compact Zoom Pop-up)
    ============================================================ */
-@media (min-width: 1025px) {
-  .bento-dashboard-grid {
-    grid-template-columns: 1.1fr 0.9fr;
-    grid-template-rows: auto auto;
-    grid-template-areas:
-      "services  hero"
-      "services  about"
-      "services  contact"
-      "showroom  contact";
-  }
-
-  .bento-herorad { grid-area: hero; }
-  .bento-services { grid-area: services; }
-  .bento-showroom { grid-area: showroom; }
-  .bento-about { grid-area: about; }
-  .bento-contact { grid-area: contact; }
+.avatar-img,
+.profile-img,
+.founder-avatar {
+  cursor: zoom-in;
+  transition: transform 0.25s ease, filter 0.25s ease;
 }
 
-@media (min-width: 769px) and (max-width: 1024px) {
-  .bento-dashboard-grid {
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas:
-      "hero   hero"
-      "about  about"
-      "services  services"
-      "showroom  contact";
-  }
-  .bento-herorad { grid-area: hero; }
-  .bento-services { grid-area: services; }
-  .bento-showroom { grid-area: showroom; }
-  .bento-about { grid-area: about; }
-  .bento-contact { grid-area: contact; }
+.avatar-img:hover,
+.profile-img:hover,
+.founder-avatar:hover {
+  transform: scale(1.05);
+  filter: brightness(1.08);
 }
 
+.lightbox-overlay {
+  position: fixed !important;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(4, 6, 8, 0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.lightbox-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lightbox-content {
+  position: relative;
+  width: 240px;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  border: 1px solid rgba(74, 222, 128, 0.3);
+  background: rgba(14, 23, 34, 0.85);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65), 0 0 25px rgba(74, 222, 128, 0.2);
+  transform: scale(0.8);
+  transition: transform 0.22s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.lightbox-overlay.active .lightbox-content {
+  transform: scale(1.05);
+}
+
+#lightboxImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(10, 14, 20, 0.7);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #fff;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.lightbox-close:hover {
+  background: rgba(74, 222, 128, 0.25);
+  border-color: #4ade80;
+  color: #4ade80;
+  transform: scale(1.1);
+}
+
+/* ============================================================
+   Responsive Adaptations
+   ============================================================ */
 @media (max-width: 992px) {
   .navbar {
     top: 10px;
@@ -1323,24 +1337,72 @@ a {
   .nav-cta {
     padding: 0.5rem 0.9rem;
   }
+  .process-steps {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 860px) {
+  .bento-herorad {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 2rem;
+    padding: 2rem 1.5rem;
+  }
+
+  .dial-stats {
+    width: 100%;
+  }
+
+  .stat-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.2rem;
+  }
+
+  .stat-label {
+    text-align: center;
+    font-size: 0.82rem;
+  }
+
+  .stat-value {
+    min-width: auto;
+    font-size: 1.4rem;
+  }
+
+  .tech-marquee-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 1rem 0.75rem;
+  }
+
+  .marquee-title {
+    text-align: center;
+  }
+
+  .founders-showcase {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .founder-profile-card {
+    min-height: auto;
+    padding: 1.75rem 1.5rem;
+  }
 }
 
 @media (max-width: 768px) {
-  .bento-dashboard-grid {
-    grid-template-columns: 1fr;
-    display: grid;
-    gap: clamp(4.5rem, 14vw, 6rem);
-  }
-
   .bento-dashboard {
-    padding: calc(var(--header-height) + 2.5rem) var(--space-sm) var(--space-lg);
+    padding: calc(var(--header-height) + 2rem) var(--space-sm) var(--space-lg);
   }
 
-  /* Mobile pill nav → dropdown */
   .navbar {
     width: 96%;
     border-radius: 24px;
   }
+
   .nav-links {
     display: none;
     position: absolute;
@@ -1357,62 +1419,29 @@ a {
     border: 1px solid var(--glass-border);
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
   }
+
   .nav-links.active {
     display: flex;
   }
+
   .nav-links a:not(.nav-cta) {
     padding: 0.65rem 1rem;
     border-radius: 12px;
   }
+
   .nav-links a:not(.nav-cta)::after {
     display: none;
   }
+
   .nav-cta,
   .lang-toggle {
     margin: 0.2rem 0;
     width: 100%;
     justify-content: center;
   }
+
   .mobile-menu-btn {
     display: block;
-  }
-
-  .bento-herorad {
-    flex-direction: column;
-    text-align: center;
-  }
-  .dial-wrap {
-    width: 220px;
-    height: 220px;
-  }
-  .dial-stats {
-    min-width: 0;
-    width: 100%;
-  }
-
-  /* Stacked, centered profile on mobile —
-     photo → bio/button → stats, all centered, no horizontal overflow */
-  .about-main {
-    grid-template-columns: 1fr;
-    justify-items: center;
-    gap: var(--space-sm);
-  }
-  .about-text {
-    align-items: center;
-    text-align: center;
-  }
-  .profile-wrap {
-    width: 200px;
-    height: 200px;
-  }
-  .about-stats {
-    width: 100%;
-    max-width: 340px;
-    margin: 0 auto;
-  }
-
-  .tech-marquee {
-    padding: 0 var(--space-sm);
   }
 
   .footer-bottom {
@@ -1421,7 +1450,36 @@ a {
   }
 }
 
-/* Reduced motion */
+@media (max-width: 480px) {
+  .dial-wrap {
+    width: 220px;
+    height: 220px;
+  }
+
+  .dial-total {
+    font-size: 2.35rem;
+  }
+
+  .dial-plus {
+    font-size: 1.3rem;
+  }
+
+  .dial-label {
+    font-size: 0.74rem;
+    margin-bottom: 0.3rem;
+    max-width: 140px;
+  }
+
+  .dial-badge {
+    font-size: 0.52rem;
+    padding: 0.15rem 0.45rem;
+  }
+
+  .bento-card {
+    padding: 1.5rem 1rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .marquee-track { animation: none; }
   .stat-fill { transition: none; }
