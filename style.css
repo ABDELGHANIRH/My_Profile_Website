@@ -1609,3 +1609,27 @@ a {
     flex-direction: column;
     gap: 0.5rem;
   }
+  .qr-code-frame img {
+    pointer-events: none;
+    user-select: none;
+    cursor: default;
+  }
+  .qr-code-frame {
+    background: #ffffff;
+    padding: 16px;
+    border-radius: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(74, 222, 128, 0.2);
+    margin-bottom: 1.1rem;
+  }
+  
+  #qrcodeCanvas canvas,
+  #qrcodeCanvas img {
+    display: block;
+    width: 210px !important;
+    height: 210px !important;
+    pointer-events: none;
+    user-select: none;
+  }

@@ -496,3 +496,17 @@ document.addEventListener('keydown', (e) => {
         closeQr();
     }
 });
+
+// --- Client-Side High-Precision QR Generator ---
+const qrContainer = document.getElementById('qrcodeCanvas');
+if (qrContainer && typeof QRCode !== 'undefined') {
+    qrContainer.innerHTML = ''; // Clear existing
+    new QRCode(qrContainer, {
+        text: "https://portfolio.autowealthai.com/",
+        width: 210,
+        height: 210,
+        colorDark: "#090b0e",
+        colorLight: "#ffffff",
+        correctLevel: QRCode.CorrectLevel.H // High error correction level for fast camera recognition
+    });
+}
