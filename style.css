@@ -1485,3 +1485,127 @@ a {
   .stat-fill { transition: none; }
   * { animation-duration: 0.001ms !important; }
 }
+
+/* ============================================================
+   Digital QR Business Card Pop-up Modal
+   ============================================================ */
+   .nav-qr-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  
+  .qr-modal-card {
+    position: relative;
+    background: rgba(14, 23, 34, 0.95);
+    border: 1px solid rgba(74, 222, 128, 0.3);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 24px;
+    padding: 2rem 1.75rem;
+    width: 90%;
+    max-width: 360px;
+    text-align: center;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 35px rgba(74, 222, 128, 0.15);
+    transform: scale(0.92);
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .qr-modal-overlay.active .qr-modal-card {
+    transform: scale(1);
+  }
+  
+  .qr-modal-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #fff;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 1.4rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+  }
+  
+  .qr-modal-close:hover {
+    background: rgba(74, 222, 128, 0.2);
+    border-color: #4ade80;
+    color: #4ade80;
+  }
+  
+  .brand-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    background: rgba(74, 222, 128, 0.1);
+    border: 1px solid rgba(74, 222, 128, 0.25);
+    color: #4ade80;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    margin-bottom: 0.85rem;
+  }
+  
+  .brand-pill .pulse {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #4ade80;
+    box-shadow: 0 0 8px #4ade80;
+  }
+  
+  .qr-card-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.25rem;
+  }
+  
+  .qr-card-subtitle {
+    font-size: 0.82rem;
+    color: #94a3b8;
+    line-height: 1.4;
+    margin-bottom: 1.25rem;
+  }
+  
+  .qr-code-frame {
+    background: #ffffff;
+    padding: 12px;
+    border-radius: 16px;
+    display: inline-block;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(74, 222, 128, 0.2);
+    margin-bottom: 1rem;
+  }
+  
+  .qr-code-frame img {
+    display: block;
+    width: 170px;
+    height: 170px;
+    border-radius: 6px;
+  }
+  
+  .qr-scan-hint {
+    font-size: 0.76rem;
+    color: #cbd5e1;
+    margin-bottom: 1.25rem;
+  }
+  
+  .qr-actions-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }

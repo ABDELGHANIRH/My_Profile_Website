@@ -459,3 +459,40 @@ document.addEventListener('keydown', (e) => {
         closeLightbox();
     }
 });
+
+// --- QR Modal Control ---
+const openQrBtn = document.getElementById('openQrModalBtn');
+const closeQrBtn = document.getElementById('closeQrModalBtn');
+const qrModal = document.getElementById('qrModal');
+
+const openQr = () => {
+    if (!qrModal) return;
+    qrModal.style.setProperty('display', 'flex', 'important');
+    setTimeout(() => {
+        qrModal.classList.add('active');
+        qrModal.setAttribute('aria-hidden', 'false');
+    }, 10);
+};
+
+const closeQr = () => {
+    if (!qrModal) return;
+    qrModal.classList.remove('active');
+    qrModal.setAttribute('aria-hidden', 'true');
+    setTimeout(() => {
+        qrModal.style.setProperty('display', 'none', 'important');
+    }, 200);
+};
+
+if (openQrBtn) openQrBtn.addEventListener('click', openQr);
+if (closeQrBtn) closeQrBtn.addEventListener('click', closeQr);
+if (qrModal) {
+    qrModal.addEventListener('click', (e) => {
+        if (e.target === qrModal) closeQr();
+    });
+}
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && qrModal && qrModal.classList.contains('active')) {
+        closeQr();
+    }
+});
