@@ -1,5 +1,5 @@
 /**
- * AutoWealthAI — Interactive Logic, Bilingual Engine (FR/AR) & Business Form Validation
+ * AutoWealthAI — Interactive Logic, Bilingual Engine (FR/AR), QR Digital Card & Reliable Form Submission
  */
 
 const translations = {
@@ -194,10 +194,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Initialize text contents
+    // Initialize default language
     setLanguage(currentLang);
 
-    // --- 3. HUD Animations: Dial count-up & Progress Bars on Viewport Entry ---
+    // --- 3. HUD Animations: Dial Count-up & Progress Bars ---
     const dialWrap = document.querySelector('.dial-wrap');
     const dialTotal = document.querySelector('.dial-total[data-count]');
     const bars = document.querySelectorAll('.stat-fill[data-fill]');
@@ -237,7 +237,7 @@ document.addEventListener('DOMContentLoaded', () => {
         io.observe(heroSection);
     }
 
-    // --- 4. Cursor Glow Tracking on Cards ---
+    // --- 4. Cursor Ambient Glow Tracking on Cards ---
     document.querySelectorAll('.bento-card').forEach(card => {
         card.addEventListener('mousemove', (e) => {
             const r = card.getBoundingClientRect();
@@ -246,267 +246,264 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- 5. Form Validation & Google Sheets Submission ---
+    // --- 5. Form Validation & Google Sheets Submission (CORS Safe) ---
     const form = document.getElementById('consultationForm') || document.querySelector('.form-wrapper');
-    if (!form) return;
+    if (form) {
+        const inputs = form.querySelectorAll('input, textarea');
+        const submitBtn = form.querySelector('[type="submit"]');
 
-    const inputs = form.querySelectorAll('input, textarea');
-    const submitBtn = form.querySelector('[type="submit"]');
-
-    const errorMessages = {
-        fr: {
-            name: "Veuillez entrer un nom valide (lettres et espaces uniquement, 3-50 caractères).",
-            business: "Veuillez entrer un nom d'entreprise valide (2-60 caractères).",
-            phone: "Veuillez entrer un numéro de téléphone valide.",
-            message: "Le message doit contenir au moins 10 caractères utiles.",
-            spam: "Veuillez éviter de répéter les mêmes lettres."
-        },
-        ar: {
-            name: "يرجى إدخال اسم صحيح (حروف ومساحات فقط، من 3 إلى 50 حرفاً).",
-            business: "يرجى إدخال اسم شركة أو نشاط صحيح (من 2 إلى 60 حرفاً).",
-            phone: "يرجى إدخال رقم هاتف صحيح للتواصل معكم.",
-            message: "يجب أن تحتوي الرسالة على 10 أحرف على الأقل.",
-            spam: "يرجى تجنب تكرار الأحرف بشكل عشوائي."
-        }
-    };
-
-    function validateField(input) {
-        const lang = document.documentElement.lang === 'ar' ? 'ar' : 'fr';
-        const errorElement = document.getElementById(`${input.id}-error`);
-        let isValid = true;
-        let customMessage = "";
-
-        if (input.required && !input.value.trim()) {
-            isValid = false;
-            customMessage = lang === 'ar' ? "هذا الحقل مطلوب." : "Ce champ est obligatoire.";
-        } else if (input.hasAttribute('pattern')) {
-            const regex = new RegExp(input.getAttribute('pattern'));
-            if (!regex.test(input.value)) {
-                isValid = false;
-                customMessage = errorMessages[lang][input.id] || "Format invalide.";
+        const errorMessages = {
+            fr: {
+                name: "Veuillez entrer un nom valide (lettres et espaces uniquement, 3-50 caractères).",
+                business: "Veuillez entrer un nom d'entreprise valide (2-60 caractères).",
+                phone: "Veuillez entrer un numéro de téléphone valide.",
+                message: "Le message doit contenir au moins 10 caractères utiles.",
+                spam: "Veuillez éviter de répéter les mêmes lettres."
+            },
+            ar: {
+                name: "يرجى إدخال اسم صحيح (حروف ومساحات فقط، من 3 إلى 50 حرفاً).",
+                business: "يرجى إدخال اسم شركة أو نشاط صحيح (من 2 إلى 60 حرفاً).",
+                phone: "يرجى إدخال رقم هاتف صحيح للتواصل معكم.",
+                message: "يجب أن تحتوي الرسالة على 10 أحرف على الأقل.",
+                spam: "يرجى تجنب تكرار الأحرف بشكل عشوائي."
             }
-        } else if (input.id === 'message') {
-            if (input.value.trim().length < 10) {
+        };
+
+        function validateField(input) {
+            const lang = document.documentElement.lang === 'ar' ? 'ar' : 'fr';
+            const errorElement = document.getElementById(`${input.id}-error`);
+            let isValid = true;
+            let customMessage = "";
+
+            if (input.required && !input.value.trim()) {
                 isValid = false;
-                customMessage = errorMessages[lang].message;
-            } else {
-                const spamRegex = /(.)\1{4,}/g;
-                if (spamRegex.test(input.value)) {
+                customMessage = lang === 'ar' ? "هذا الحقل مطلوب." : "Ce champ est obligatoire.";
+            } else if (input.hasAttribute('pattern')) {
+                const regex = new RegExp(input.getAttribute('pattern'));
+                if (!regex.test(input.value)) {
                     isValid = false;
-                    customMessage = errorMessages[lang].spam;
+                    customMessage = errorMessages[lang][input.id] || "Format invalide.";
+                }
+            } else if (input.id === 'message') {
+                if (input.value.trim().length < 10) {
+                    isValid = false;
+                    customMessage = errorMessages[lang].message;
+                } else {
+                    const spamRegex = /(.)\1{4,}/g;
+                    if (spamRegex.test(input.value)) {
+                        isValid = false;
+                        customMessage = errorMessages[lang].spam;
+                    }
                 }
             }
-        }
 
-        if (errorElement) {
-            if (!isValid && input.value.length > 0) {
-                input.classList.add('invalid');
-                input.classList.remove('valid');
-                errorElement.innerText = customMessage;
-                errorElement.classList.add('visible');
-            } else if (isValid && input.value.length > 0) {
-                input.classList.remove('invalid');
-                input.classList.add('valid');
-                errorElement.innerText = "";
-                errorElement.classList.remove('visible');
-            } else {
-                input.classList.remove('invalid', 'valid');
-                errorElement.innerText = "";
-                errorElement.classList.remove('visible');
+            if (errorElement) {
+                if (!isValid && input.value.length > 0) {
+                    input.classList.add('invalid');
+                    input.classList.remove('valid');
+                    errorElement.innerText = customMessage;
+                    errorElement.classList.add('visible');
+                } else if (isValid && input.value.length > 0) {
+                    input.classList.remove('invalid');
+                    input.classList.add('valid');
+                    errorElement.innerText = "";
+                    errorElement.classList.remove('visible');
+                } else {
+                    input.classList.remove('invalid', 'valid');
+                    errorElement.innerText = "";
+                    errorElement.classList.remove('visible');
+                }
             }
+
+            return isValid;
         }
 
-        return isValid;
-    }
-
-    inputs.forEach(input => {
-        input.addEventListener('input', () => validateField(input));
-        input.addEventListener('blur', () => validateField(input));
-    });
-
-    form.addEventListener('submit', function (e) {
-        e.preventDefault();
-
-        let formIsValid = true;
         inputs.forEach(input => {
-            if (!validateField(input)) {
-                formIsValid = false;
+            input.addEventListener('input', () => validateField(input));
+            input.addEventListener('blur', () => validateField(input));
+        });
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            let formIsValid = true;
+            inputs.forEach(input => {
+                if (!validateField(input)) {
+                    formIsValid = false;
+                }
+            });
+
+            if (!formIsValid) {
+                const firstInvalid = form.querySelector('.invalid');
+                if (firstInvalid) firstInvalid.focus();
+                return;
             }
-        });
 
-        if (!formIsValid) {
-            const firstInvalid = form.querySelector('.invalid');
-            if (firstInvalid) firstInvalid.focus();
-            return;
+            const isAr = document.documentElement.lang === 'ar';
+            const originalBtnText = submitBtn.innerText;
+            submitBtn.innerText = isAr ? 'جاري التأكيد...' : 'Envoi en cours...';
+            submitBtn.disabled = true;
+
+            const formData = new FormData(this);
+            const data = new URLSearchParams(formData);
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbyeWfjgntnKEMy7qZVPaEn6ZhG3T2ZoyB3ns8KKIOeaeR-7W8dDrYrnge_7Kw3xY9e_/exec';
+
+            // mode: 'no-cors' prevents browser from rejecting Google Apps Script's redirect
+            fetch(scriptURL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: data
+            })
+            .then(() => {
+                showPopup(
+                    true,
+                    isAr ? 'تم تأكيد طلبكم بنجاح!' : 'Demande bien reçue !',
+                    isAr ? 'شكراً لاهتمامكم. سيتواصل معكم أحد المؤسسين خلال 24 ساعة لبدء التشخيص المجاني.' : 'Merci ! Vos informations ont bien été enregistrées. Un cofondateur vous contactera sous 24h ouvrées.',
+                    isAr ? 'إغلاق' : 'Compris'
+                );
+                form.reset();
+                inputs.forEach(el => el.classList.remove('valid'));
+            })
+            .catch(error => {
+                console.error('Submission Error:', error);
+                showPopup(
+                    false,
+                    isAr ? 'تعذر إرسال الطلب' : 'Une erreur est survenue',
+                    isAr ? 'يرجى التحقق من الاتصال، أو التواصل معنا مباشرة عبر الواتساب.' : 'Veuillez vérifier votre connexion ou nous contacter directement sur WhatsApp.',
+                    isAr ? 'موافق' : 'D’accord'
+                );
+            })
+            .finally(() => {
+                submitBtn.innerText = originalBtnText;
+                submitBtn.disabled = false;
+            });
+        });
+    }
+
+    // --- 6. Helper: Custom Alert / Confirmation Popup Modal ---
+    function showPopup(isSuccess, title, message, btnText) {
+        const modal = document.getElementById('customModal');
+        const iconWrapper = document.getElementById('modalIconWrap') || document.querySelector('.modal-icon-wrapper');
+        const svgIcon = document.getElementById('modalIcon');
+        const closeBtn = document.getElementById('modalCloseBtn');
+
+        if (!modal) return;
+
+        document.getElementById('modalTitle').innerText = title;
+        document.getElementById('modalMessage').innerText = message;
+        if (closeBtn) closeBtn.innerText = btnText;
+
+        if (iconWrapper && svgIcon) {
+            if (isSuccess) {
+                iconWrapper.className = 'modal-icon-wrapper success';
+                svgIcon.innerHTML = `<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline>`;
+            } else {
+                iconWrapper.className = 'modal-icon-wrapper error';
+                svgIcon.innerHTML = `<circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line>`;
+            }
         }
 
-        const isAr = document.documentElement.lang === 'ar';
-        const originalBtnText = submitBtn.innerText;
-        submitBtn.innerText = isAr ? 'جاري التأكيد...' : 'Envoi en cours...';
-        submitBtn.disabled = true;
+        modal.style.setProperty('display', 'flex', 'important');
+        setTimeout(() => {
+            modal.classList.add('active');
+        }, 10);
 
-        const formData = new FormData(this);
-        const data = new URLSearchParams(formData);
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbyDQdJ18sdOERD5_i94uXtEoeBrBfbzNXoNeyr1-N2mMqPJU0zw_AEv_gRRgNbpIKOy/exec';
+        const closeModal = () => {
+            modal.classList.remove('active');
+            modal.style.setProperty('display', 'none', 'important');
+        };
 
-        fetch(scriptURL, {
-            method: 'POST',
-            body: data
-        })
-        .then(() => {
-            showPopup(
-                true,
-                isAr ? 'تم تأكيد طلبكم بنجاح!' : 'Demande bien reçue !',
-                isAr ? 'شكراً لاهتمامكم. سيتواصل معكم أحد المؤسسين خلال 24 ساعة لبدء التشخيص المجاني.' : 'Merci ! Vos informations ont bien été enregistrées. Un cofondateur vous contactera sous 24h ouvrées.',
-                isAr ? 'إغلاق' : 'Compris'
-            );
-            form.reset();
-            inputs.forEach(el => el.classList.remove('valid'));
-        })
-        .catch(error => {
-            console.error('Error!', error.message);
-            showPopup(
-                false,
-                isAr ? 'تعذر إرسال الطلب' : 'Une erreur est survenue',
-                isAr ? 'يرجى التحقق من الاتصال، أو التواصل معنا مباشرة عبر الواتساب.' : 'Veuillez vérifier votre connexion ou nous contacter directement sur WhatsApp.',
-                isAr ? 'موافق' : 'D’accord'
-            );
-        })
-        .finally(() => {
-            submitBtn.innerText = originalBtnText;
-            submitBtn.disabled = false;
+        if (closeBtn) closeBtn.onclick = closeModal;
+        modal.onclick = (e) => {
+            if (e.target === modal) closeModal();
+        };
+    }
+
+    // --- 7. Compact Image Lightbox Expansion ---
+    const lightbox = document.getElementById('imageLightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxClose = document.getElementById('lightboxClose');
+    const zoomableImages = document.querySelectorAll('.avatar-img, .profile-img, .founder-avatar');
+
+    zoomableImages.forEach(img => {
+        img.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (!lightbox || !lightboxImg) return;
+            lightboxImg.src = img.currentSrc || img.src;
+            lightboxImg.alt = img.alt || 'Aperçu agrandi';
+            lightbox.classList.add('active');
+            lightbox.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
         });
     });
-});
 
-// --- 6. Helper: Custom Popup Modal ---
-function showPopup(isSuccess, title, message, btnText) {
-    const modal = document.getElementById('customModal');
-    const iconWrapper = document.getElementById('modalIconWrap') || document.querySelector('.modal-icon-wrapper');
-    const svgIcon = document.getElementById('modalIcon');
-    const closeBtn = document.getElementById('modalCloseBtn');
+    const closeLightbox = () => {
+        if (!lightbox) return;
+        lightbox.classList.remove('active');
+        lightbox.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    };
 
-    if (!modal) return;
+    if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+    if (lightbox) {
+        lightbox.addEventListener('click', (e) => {
+            if (e.target !== lightboxImg) closeLightbox();
+        });
+    }
 
-    document.getElementById('modalTitle').innerText = title;
-    document.getElementById('modalMessage').innerText = message;
-    if (closeBtn) closeBtn.innerText = btnText;
+    // --- 8. QR Digital Card Modal Control ---
+    const openQrBtn = document.getElementById('openQrModalBtn');
+    const closeQrBtn = document.getElementById('closeQrModalBtn');
+    const qrModal = document.getElementById('qrModal');
 
-    if (iconWrapper && svgIcon) {
-        if (isSuccess) {
-            iconWrapper.className = 'modal-icon-wrapper success';
-            svgIcon.innerHTML = `<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline>`;
-        } else {
-            iconWrapper.className = 'modal-icon-wrapper error';
-            svgIcon.innerHTML = `<circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line>`;
+    const openQr = () => {
+        if (!qrModal) return;
+        qrModal.style.setProperty('display', 'flex', 'important');
+        setTimeout(() => {
+            qrModal.classList.add('active');
+            qrModal.setAttribute('aria-hidden', 'false');
+        }, 10);
+    };
+
+    const closeQr = () => {
+        if (!qrModal) return;
+        qrModal.classList.remove('active');
+        qrModal.setAttribute('aria-hidden', 'true');
+        setTimeout(() => {
+            qrModal.style.setProperty('display', 'none', 'important');
+        }, 200);
+    };
+
+    if (openQrBtn) openQrBtn.addEventListener('click', openQr);
+    if (closeQrBtn) closeQrBtn.addEventListener('click', closeQr);
+    if (qrModal) {
+        qrModal.addEventListener('click', (e) => {
+            if (e.target === qrModal) closeQr();
+        });
+    }
+
+    // Close overlays with Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            if (lightbox && lightbox.classList.contains('active')) closeLightbox();
+            if (qrModal && qrModal.classList.contains('active')) closeQr();
         }
-    }
-
-    modal.style.setProperty('display', 'flex', 'important');
-    setTimeout(() => {
-        modal.classList.add('active');
-    }, 10);
-
-    const closeModal = () => {
-        modal.classList.remove('active');
-        modal.style.setProperty('display', 'none', 'important');
-    };
-
-    if (closeBtn) closeBtn.onclick = closeModal;
-    modal.onclick = (e) => {
-        if (e.target === modal) closeModal();
-    };
-}
-
-// --- Image Lightbox Expansion ---
-const lightbox = document.getElementById('imageLightbox');
-const lightboxImg = document.getElementById('lightboxImg');
-const lightboxClose = document.getElementById('lightboxClose');
-
-// Select all expandable images (founder headshots and avatars)
-const zoomableImages = document.querySelectorAll('.avatar-img, .profile-img, .founder-avatar');
-
-zoomableImages.forEach(img => {
-    img.addEventListener('click', (e) => {
-        e.stopPropagation();
-        if (!lightbox || !lightboxImg) return;
-        lightboxImg.src = img.currentSrc || img.src;
-        lightboxImg.alt = img.alt || 'Aperçu agrandi';
-        lightbox.classList.add('active');
-        lightbox.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden'; // Lock background scroll
     });
-});
 
-const closeLightbox = () => {
-    if (!lightbox) return;
-    lightbox.classList.remove('active');
-    lightbox.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-};
-
-if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
-if (lightbox) {
-    lightbox.addEventListener('click', (e) => {
-        // Close if clicked anywhere outside the image itself
-        if (e.target !== lightboxImg) closeLightbox();
-    });
-}
-
-// Close on Escape key
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && lightbox && lightbox.classList.contains('active')) {
-        closeLightbox();
+    // --- 9. High-Precision Client-Side QR Generator ---
+    const qrContainer = document.getElementById('qrcodeCanvas');
+    if (qrContainer && typeof QRCode !== 'undefined') {
+        qrContainer.innerHTML = '';
+        new QRCode(qrContainer, {
+            text: "https://portfolio.autowealthai.com/",
+            width: 210,
+            height: 210,
+            colorDark: "#090b0e",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.H
+        });
     }
 });
-
-// --- QR Modal Control ---
-const openQrBtn = document.getElementById('openQrModalBtn');
-const closeQrBtn = document.getElementById('closeQrModalBtn');
-const qrModal = document.getElementById('qrModal');
-
-const openQr = () => {
-    if (!qrModal) return;
-    qrModal.style.setProperty('display', 'flex', 'important');
-    setTimeout(() => {
-        qrModal.classList.add('active');
-        qrModal.setAttribute('aria-hidden', 'false');
-    }, 10);
-};
-
-const closeQr = () => {
-    if (!qrModal) return;
-    qrModal.classList.remove('active');
-    qrModal.setAttribute('aria-hidden', 'true');
-    setTimeout(() => {
-        qrModal.style.setProperty('display', 'none', 'important');
-    }, 200);
-};
-
-if (openQrBtn) openQrBtn.addEventListener('click', openQr);
-if (closeQrBtn) closeQrBtn.addEventListener('click', closeQr);
-if (qrModal) {
-    qrModal.addEventListener('click', (e) => {
-        if (e.target === qrModal) closeQr();
-    });
-}
-
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && qrModal && qrModal.classList.contains('active')) {
-        closeQr();
-    }
-});
-
-// --- Client-Side High-Precision QR Generator ---
-const qrContainer = document.getElementById('qrcodeCanvas');
-if (qrContainer && typeof QRCode !== 'undefined') {
-    qrContainer.innerHTML = ''; // Clear existing
-    new QRCode(qrContainer, {
-        text: "https://portfolio.autowealthai.com/",
-        width: 210,
-        height: 210,
-        colorDark: "#090b0e",
-        colorLight: "#ffffff",
-        correctLevel: QRCode.CorrectLevel.H // High error correction level for fast camera recognition
-    });
-}
