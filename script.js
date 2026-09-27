@@ -1,5 +1,5 @@
 /**
- * AutoWealthAI — Interactive Logic, Bilingual Engine (FR/AR), QR Digital Card & Reliable Form Submission
+ * AutoWealthAI — Interactive Logic, Bilingual Engine (FR/AR), QR Digital Card, Loss Calculator & Reliable Form Submission
  */
 
 const translations = {
@@ -140,12 +140,13 @@ const translations = {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-    // --- 1. Mobile Menu Toggle ---
+    // --- 1. Mobile Menu Toggle with Outside Click Listener ---
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const navLinks = document.getElementById('nav-links');
 
     if (mobileMenuBtn && navLinks) {
-        mobileMenuBtn.addEventListener('click', () => {
+        mobileMenuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
             navLinks.classList.toggle('active');
         });
 
@@ -153,6 +154,12 @@ document.addEventListener('DOMContentLoaded', () => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
             });
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                navLinks.classList.remove('active');
+            }
         });
     }
 
@@ -197,7 +204,41 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize default language
     setLanguage(currentLang);
 
-    // --- 3. HUD Animations: Dial Count-up & Progress Bars ---
+    // --- 3. Interactive Loss Calculator ---
+    const callsInput = document.getElementById('missedCalls');
+    const basketInput = document.getElementById('basketVal');
+    const rateInput = document.getElementById('closingRate');
+
+    const callsVal = document.getElementById('missedCallsVal');
+    const basketValText = document.getElementById('basketValText');
+    const rateVal = document.getElementById('closingRateVal');
+    const totalLoss = document.getElementById('totalLoss');
+
+    function calculateLoss() {
+        if (!callsInput || !basketInput || !rateInput || !totalLoss) return;
+        const calls = parseInt(callsInput.value, 10);
+        const basket = parseInt(basketInput.value, 10);
+        const rate = parseInt(rateInput.value, 10) / 100;
+
+        if (callsVal) callsVal.innerText = calls;
+        if (basketValText) basketValText.innerText = basket + " €";
+        if (rateVal) rateVal.innerText = Math.round(rate * 100) + "%";
+
+        // Monthly calculation: (calls/week * 4 weeks) * closing rate * average basket
+        const monthlyClientsLost = calls * 4 * rate;
+        const monthlyEurosLost = Math.round(monthlyClientsLost * basket);
+
+        totalLoss.innerText = new Intl.NumberFormat('fr-FR').format(monthlyEurosLost) + " €";
+    }
+
+    if (callsInput && basketInput && rateInput) {
+        callsInput.addEventListener('input', calculateLoss);
+        basketInput.addEventListener('input', calculateLoss);
+        rateInput.addEventListener('input', calculateLoss);
+        calculateLoss();
+    }
+
+    // --- 4. HUD Animations: Dial Count-up & Progress Bars ---
     const dialWrap = document.querySelector('.dial-wrap');
     const dialTotal = document.querySelector('.dial-total[data-count]');
     const bars = document.querySelectorAll('.stat-fill[data-fill]');
@@ -237,7 +278,7 @@ document.addEventListener('DOMContentLoaded', () => {
         io.observe(heroSection);
     }
 
-    // --- 4. Cursor Ambient Glow Tracking on Cards ---
+    // --- 5. Cursor Ambient Glow Tracking on Cards ---
     document.querySelectorAll('.bento-card').forEach(card => {
         card.addEventListener('mousemove', (e) => {
             const r = card.getBoundingClientRect();
@@ -246,7 +287,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- 5. Form Validation & Google Sheets Submission (CORS Safe) ---
+    // --- 6. Form Validation & Google Sheets Submission (CORS Safe) ---
     const form = document.getElementById('consultationForm') || document.querySelector('.form-wrapper');
     if (form) {
         const inputs = form.querySelectorAll('input, textarea');
@@ -383,7 +424,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- 6. Helper: Custom Alert / Confirmation Popup Modal ---
+    // --- 7. Helper: Custom Popup Modal ---
     function showPopup(isSuccess, title, message, btnText) {
         const modal = document.getElementById('customModal');
         const iconWrapper = document.getElementById('modalIconWrap') || document.querySelector('.modal-icon-wrapper');
@@ -422,7 +463,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     }
 
-    // --- 7. Compact Image Lightbox Expansion ---
+    // --- 8. Lightbox Modal ---
     const lightbox = document.getElementById('imageLightbox');
     const lightboxImg = document.getElementById('lightboxImg');
     const lightboxClose = document.getElementById('lightboxClose');
@@ -454,7 +495,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- 8. QR Digital Card Modal Control ---
+    // --- 9. QR Digital Card Modal Control & Generator ---
     const openQrBtn = document.getElementById('openQrModalBtn');
     const closeQrBtn = document.getElementById('closeQrModalBtn');
     const qrModal = document.getElementById('qrModal');
@@ -485,7 +526,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Close overlays with Escape key
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
             if (lightbox && lightbox.classList.contains('active')) closeLightbox();
@@ -493,7 +533,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // --- 9. High-Precision Client-Side QR Generator ---
     const qrContainer = document.getElementById('qrcodeCanvas');
     if (qrContainer && typeof QRCode !== 'undefined') {
         qrContainer.innerHTML = '';
